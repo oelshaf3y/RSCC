@@ -28,6 +28,10 @@ namespace RSCC_GEN
 
             Transaction tr = new Transaction(doc, "Delete CAD Imports");
             tr.Start();
+            foreach (Element element in fec)
+            {
+                element.Pinned = false;
+            }
             doc.Delete(fec.Select(x => x.Id).ToArray());
             TaskDialog.Show("Done", $"Successfully deleted {count} CAD Files.");
             tr.Commit();
