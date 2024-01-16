@@ -1,11 +1,13 @@
-﻿using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace RSCC_GEN
 {
-    internal class DeleteCad : IExternalCommand
+    [TransactionAttribute(TransactionMode.Manual)]
+    public class DeleteCad : IExternalCommand
     {
         UIDocument uidoc;
         Document doc;

@@ -10,3 +10,9 @@ C:\Users\Omar\source\repos\oelshaf3y\RSCC\RSCC_GEN\obj\Debug\RSCC_GEN.csproj.Ass
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\RSCC_GEN\obj\Debug\RSCC_GEN.csproj.CoreCompileInputs.cache
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\RSCC_GEN\obj\Debug\RSCC_GEN.dll
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\RSCC_GEN\obj\Debug\RSCC_GEN.pdb
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\bin\Debug\RSCC_GEN.dll
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\bin\Debug\RSCC_GEN.pdb
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.AssemblyReference.cache
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.CoreCompileInputs.cache
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.dll
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.pdb

@@ -10,7 +10,7 @@ using System.Text;
 namespace RSCC_GEN
 {
     [TransactionAttribute(TransactionMode.Manual)]
-    internal class RebarSet : IExternalCommand
+    public class RebarSet : IExternalCommand
     {
         UIDocument uidoc;
         Document doc;
@@ -56,9 +56,6 @@ namespace RSCC_GEN
             return Result.Succeeded;
 
         }
-        void td(string mes)
-        {
-            TaskDialog.Show("info", mes);
-        }
+
     }
 }

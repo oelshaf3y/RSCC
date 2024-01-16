@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeleteCad.cs" />
+    <Compile Include="Ninja.cs" />
     <Compile Include="RebarSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
