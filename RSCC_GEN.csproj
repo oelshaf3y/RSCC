@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +55,17 @@
     <Compile Include="Ninja.cs" />
     <Compile Include="RebarSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Consolidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consolidate.Designer.cs">
+      <DependentUpon>Consolidate.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Consolidate.resx">
+      <DependentUpon>Consolidate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
