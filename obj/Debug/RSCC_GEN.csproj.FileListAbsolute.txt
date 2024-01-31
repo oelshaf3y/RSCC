@@ -18,3 +18,4 @@ C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.dll
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.pdb
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.Consolidate.resources
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.GenerateResource.cache
+C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.PrintAndExportForm.resources
