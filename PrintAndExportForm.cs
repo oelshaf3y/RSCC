@@ -113,7 +113,11 @@ namespace RSCC_GEN
                     MessageBox.Show("Please Select a Path to save the files!");
                     return;
                 }
-
+            }
+            if (cadex.Checked && comboBox3.SelectedItem.ToString().Trim().Length == 0)
+            {
+                MessageBox.Show("Please create export settings first.");
+                return;
             }
             PDFLocation = Path.Combine(savelocation, "PDF");
             DWGLocation = Path.Combine(savelocation, "CAD");
@@ -121,14 +125,14 @@ namespace RSCC_GEN
             if (!Directory.Exists(Path.Combine(savelocation, "PDF")))
             {
                 Directory.CreateDirectory(PDFLocation);
-                if (!Directory.Exists(DWGLocation))
-                {
-                    Directory.CreateDirectory(DWGLocation);
-                }
-                if (!Directory.Exists(XLSLocation))
-                {
-                    Directory.CreateDirectory(XLSLocation);
-                }
+            }
+            if (!Directory.Exists(DWGLocation))
+            {
+                Directory.CreateDirectory(DWGLocation);
+            }
+            if (!Directory.Exists(XLSLocation))
+            {
+                Directory.CreateDirectory(XLSLocation);
             }
 
             DialogResult = DialogResult.OK;
