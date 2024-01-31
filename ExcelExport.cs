@@ -134,7 +134,7 @@ namespace RSCC_GEN
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (row.Cells[1].Value.ToString().Trim().Length == 0)
+                    if (Convert.ToBoolean((row.Cells[0] as DataGridViewCheckBoxCell).Value) && row.Cells[1].Value.ToString().Trim().Length == 0)
                     {
                         MessageBox.Show("you included numbers.yet, you didn't specify any numbers");
                         return;
