@@ -198,6 +198,8 @@
             // pdfex
             // 
             this.pdfex.AutoSize = true;
+            this.pdfex.Checked = true;
+            this.pdfex.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pdfex.Location = new System.Drawing.Point(89, 372);
             this.pdfex.Name = "pdfex";
             this.pdfex.Size = new System.Drawing.Size(55, 21);
@@ -217,6 +219,8 @@
             // cadex
             // 
             this.cadex.AutoSize = true;
+            this.cadex.Checked = true;
+            this.cadex.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cadex.Location = new System.Drawing.Point(164, 372);
             this.cadex.Name = "cadex";
             this.cadex.Size = new System.Drawing.Size(57, 21);

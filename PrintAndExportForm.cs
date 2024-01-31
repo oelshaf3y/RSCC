@@ -47,11 +47,6 @@ namespace RSCC_GEN
             comboBox5.Items.Add("All sheets in the Model");
             comboBox5.SelectedIndex = comboBox5.Items.Count - 1;
             exampleLabel.Text = sheets.First().SheetNumber + " - " + sheets.First().Name.ToString();
-            location.Text = "C:\\Users\\Omar\\Desktop\\Out";
-            checkedListBox1.SetItemChecked(1, true);
-            checkedListBox1.SetItemChecked(2, true);
-
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
