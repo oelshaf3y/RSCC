@@ -53,7 +53,7 @@ namespace RSCC_GEN
                 dataGridView1.Refresh();
                 return;
             }
-            List<Autodesk.Revit.DB.ViewSchedule> scheds = sheetSets.ElementAt(comboBox1.SelectedIndex).OrderedViewList.Where(x => x is ViewSchedule)?.Cast<Autodesk.Revit.DB.ViewSchedule>().ToList();
+            List<Autodesk.Revit.DB.ViewSchedule> scheds = sheetSets.ElementAt(comboBox1.SelectedIndex).OrderedViewList.Where(x => x is ViewSchedule & !x.Name.ToLower().Contains("revision"))?.Cast<Autodesk.Revit.DB.ViewSchedule>().ToList();
             foreach (Autodesk.Revit.DB.ViewSchedule v in scheds)
             {
                 dataGridView1.Rows.Add(false, "", v.Name);

@@ -109,7 +109,7 @@ namespace RSCC_GEN
                     return;
                 }
             }
-            if (cadex.Checked && comboBox3.SelectedItem.ToString().Trim().Length == 0)
+            if (cadex.Checked && comboBox3.SelectedIndex == -1)
             {
                 currentSettings = new DWGExportOptions();
                 currentSettings.MergedViews = merge.Checked;
