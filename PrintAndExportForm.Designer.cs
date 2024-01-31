@@ -39,14 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.combinePDFs = new System.Windows.Forms.CheckBox();
-            this.subCat = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,6 +52,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +71,7 @@
             // 
             this.prefixBox.Location = new System.Drawing.Point(33, 34);
             this.prefixBox.Name = "prefixBox";
-            this.prefixBox.Size = new System.Drawing.Size(168, 24);
+            this.prefixBox.Size = new System.Drawing.Size(375, 24);
             this.prefixBox.TabIndex = 1;
             this.prefixBox.TextChanged += new System.EventHandler(this.prefixBox_TextChanged);
             // 
@@ -84,7 +80,7 @@
             this.exampleLabel.AutoSize = true;
             this.exampleLabel.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Italic);
             this.exampleLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.exampleLabel.Location = new System.Drawing.Point(30, 97);
+            this.exampleLabel.Location = new System.Drawing.Point(12, 184);
             this.exampleLabel.Name = "exampleLabel";
             this.exampleLabel.Size = new System.Drawing.Size(60, 14);
             this.exampleLabel.TabIndex = 3;
@@ -92,16 +88,16 @@
             // 
             // suffixBox
             // 
-            this.suffixBox.Location = new System.Drawing.Point(237, 34);
+            this.suffixBox.Location = new System.Drawing.Point(33, 82);
             this.suffixBox.Name = "suffixBox";
-            this.suffixBox.Size = new System.Drawing.Size(168, 24);
+            this.suffixBox.Size = new System.Drawing.Size(375, 24);
             this.suffixBox.TabIndex = 5;
             this.suffixBox.TextChanged += new System.EventHandler(this.suffixBox_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(234, 13);
+            this.label3.Location = new System.Drawing.Point(30, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 4;
@@ -112,7 +108,7 @@
             this.includeSheetNo.AutoSize = true;
             this.includeSheetNo.Checked = true;
             this.includeSheetNo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.includeSheetNo.Location = new System.Drawing.Point(33, 64);
+            this.includeSheetNo.Location = new System.Drawing.Point(33, 120);
             this.includeSheetNo.Name = "includeSheetNo";
             this.includeSheetNo.Size = new System.Drawing.Size(138, 21);
             this.includeSheetNo.TabIndex = 6;
@@ -125,7 +121,7 @@
             this.includeSheetName.AutoSize = true;
             this.includeSheetName.Checked = true;
             this.includeSheetName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.includeSheetName.Location = new System.Drawing.Point(237, 64);
+            this.includeSheetName.Location = new System.Drawing.Point(33, 147);
             this.includeSheetName.Name = "includeSheetName";
             this.includeSheetName.Size = new System.Drawing.Size(152, 21);
             this.includeSheetName.TabIndex = 7;
@@ -154,7 +150,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 126);
+            this.label4.Location = new System.Drawing.Point(29, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 17);
             this.label4.TabIndex = 10;
@@ -164,94 +160,16 @@
             // 
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(41, 147);
+            this.comboBox1.Location = new System.Drawing.Point(32, 236);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(234, 126);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 17);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "* Paper Size";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(237, 147);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 24);
-            this.comboBox2.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 183);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 17);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "* Color Output";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(41, 203);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(160, 24);
-            this.comboBox3.TabIndex = 15;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(237, 203);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(160, 24);
-            this.comboBox4.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(234, 182);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 17);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "* Print Quality";
-            // 
-            // combinePDFs
-            // 
-            this.combinePDFs.AutoSize = true;
-            this.combinePDFs.Checked = true;
-            this.combinePDFs.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.combinePDFs.Location = new System.Drawing.Point(301, 242);
-            this.combinePDFs.Name = "combinePDFs";
-            this.combinePDFs.Size = new System.Drawing.Size(112, 21);
-            this.combinePDFs.TabIndex = 18;
-            this.combinePDFs.Text = "Combine Files";
-            this.combinePDFs.UseVisualStyleBackColor = true;
-            // 
-            // subCat
-            // 
-            this.subCat.AutoSize = true;
-            this.subCat.Checked = true;
-            this.subCat.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.subCat.Location = new System.Drawing.Point(41, 242);
-            this.subCat.Name = "subCat";
-            this.subCat.Size = new System.Drawing.Size(232, 21);
-            this.subCat.TabIndex = 19;
-            this.subCat.Text = "Create PDF and CAD Sub Folders";
-            this.subCat.UseVisualStyleBackColor = true;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 279);
+            this.label8.Location = new System.Drawing.Point(30, 318);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 17);
             this.label8.TabIndex = 20;
@@ -259,15 +177,15 @@
             // 
             // location
             // 
-            this.location.Location = new System.Drawing.Point(41, 299);
+            this.location.Location = new System.Drawing.Point(33, 338);
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(302, 24);
+            this.location.Size = new System.Drawing.Size(284, 24);
             this.location.TabIndex = 21;
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(359, 299);
+            this.button1.Location = new System.Drawing.Point(343, 334);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 31);
             this.button1.TabIndex = 22;
@@ -280,7 +198,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Checked = true;
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Location = new System.Drawing.Point(71, 343);
+            this.checkBox5.Location = new System.Drawing.Point(89, 372);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(55, 21);
             this.checkBox5.TabIndex = 23;
@@ -290,7 +208,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 344);
+            this.label9.Location = new System.Drawing.Point(30, 373);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 17);
             this.label9.TabIndex = 24;
@@ -301,7 +219,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Checked = true;
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(146, 343);
+            this.checkBox6.Location = new System.Drawing.Point(164, 372);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(57, 21);
             this.checkBox6.TabIndex = 25;
@@ -395,6 +313,43 @@
             this.label11.TabIndex = 31;
             this.label11.Text = "View Set";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(234, 215);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 17);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "* Paper Size";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(237, 236);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(160, 24);
+            this.comboBox2.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 264);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "* Color Output";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(32, 284);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(160, 24);
+            this.comboBox3.TabIndex = 15;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // PrintAndExportForm
             // 
             this.AcceptButton = this.button2;
@@ -416,10 +371,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.location);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.subCat);
-            this.Controls.Add(this.combinePDFs);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox2);
@@ -456,14 +407,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.ComboBox comboBox2;
-        public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox comboBox3;
-        public System.Windows.Forms.ComboBox comboBox4;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.CheckBox combinePDFs;
-        public System.Windows.Forms.CheckBox subCat;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox location;
         public System.Windows.Forms.Button button1;
@@ -479,5 +422,9 @@
         public System.Windows.Forms.Button button5;
         public System.Windows.Forms.ComboBox comboBox5;
         public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox comboBox3;
     }
 }

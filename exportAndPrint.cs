@@ -41,7 +41,7 @@ namespace RSCC_GEN
                         printManager.PrintRange = PrintRange.Select;
                         printManager.PrintSetup.CurrentPrintSetting.PrintParameters.PaperSize = printManager.PaperSizes.Cast<PaperSize>().Where(x => x.Name == form.comboBox2.SelectedItem.ToString()).First();
                         printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HiddenLineViews = HiddenLineViewsType.VectorProcessing;
-                        printManager.PrintSetup.CurrentPrintSetting.PrintParameters.RasterQuality = form.rasterQualityTypes.ElementAt(form.comboBox4.SelectedIndex);
+                        printManager.PrintSetup.CurrentPrintSetting.PrintParameters.RasterQuality = RasterQualityType.Presentation;
                         printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideScopeBoxes = true;
                         printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideUnreferencedViewTags = true;
                         printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideCropBoundaries = true;

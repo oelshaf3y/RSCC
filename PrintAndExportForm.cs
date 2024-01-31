@@ -41,10 +41,6 @@ namespace RSCC_GEN
         private void PrintAndExportForm_Load(object sender, EventArgs e)
         {
             comboBox1.Items.AddRange(printers.ToArray());
-            foreach (var s in rasterQualityTypes)
-            {
-                comboBox4.Items.Add(s.ToString());
-            }
             foreach (var s in colorDepthTypes)
             {
                 comboBox3.Items.Add(s.ToString());
@@ -54,7 +50,6 @@ namespace RSCC_GEN
             comboBox5.Items.Add("All sheets in the Model");
             comboBox5.SelectedIndex = comboBox5.Items.Count - 1;
             comboBox3.SelectedIndex = comboBox3.Items.IndexOf("Color");
-            comboBox4.SelectedIndex = comboBox4.Items.IndexOf("Presentation");
             exampleLabel.Text = sheets.First().SheetNumber + " - " + sheets.First().Name.ToString();
             location.Text = "C:\\Users\\Omar\\Desktop\\newPrint";
             checkedListBox1.SetItemChecked(1, true);
@@ -120,30 +115,23 @@ namespace RSCC_GEN
                 MessageBox.Show("Please Select a valid location.");
                 return;
             }
-            if (subCat.Checked)
+
+            PDFLocation = Path.Combine(savelocation, "PDF");
+            DWGLocation = Path.Combine(savelocation, "CAD");
+            XLSLocation = Path.Combine(savelocation, "Excel");
+            if (!Directory.Exists(Path.Combine(savelocation, "PDF")))
             {
-                PDFLocation = Path.Combine(savelocation, "PDF");
-                DWGLocation = Path.Combine(savelocation, "CAD");
-                XLSLocation = Path.Combine(savelocation, "Excel");
-                if (!Directory.Exists(Path.Combine(savelocation, "PDF")))
+                Directory.CreateDirectory(PDFLocation);
+                if (!Directory.Exists(DWGLocation))
                 {
-                    Directory.CreateDirectory(PDFLocation);
-                    if (!Directory.Exists(DWGLocation))
-                    {
-                        Directory.CreateDirectory(DWGLocation);
-                    }
-                    if (!Directory.Exists(XLSLocation))
-                    {
-                        Directory.CreateDirectory(XLSLocation);
-                    }
+                    Directory.CreateDirectory(DWGLocation);
+                }
+                if (!Directory.Exists(XLSLocation))
+                {
+                    Directory.CreateDirectory(XLSLocation);
                 }
             }
-            else
-            {
-                PDFLocation = savelocation;
-                DWGLocation = savelocation;
-                XLSLocation = savelocation;
-            }
+
             DialogResult = DialogResult.OK;
         }
 
@@ -163,6 +151,12 @@ namespace RSCC_GEN
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.ShowDialog();
             location.Text = folderBrowser.SelectedPath;
+        }
+
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void button4_Click(object sender, EventArgs e)
