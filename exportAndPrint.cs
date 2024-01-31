@@ -55,8 +55,17 @@ namespace RSCC_GEN
                             {
                                 if (Convert.ToBoolean((row.Cells[0] as DataGridViewCheckBoxCell).Value))
                                 {
+
                                     ViewSchedule schedule = schedules.Where(x => x.Name == row.Cells[2].Value.ToString()).FirstOrDefault();
-                                    schedule.Export(form.XLSLocation, excelExporter.getFileName(row) + ".csv", viewScheduleExportOptions);
+                                    try
+                                    {
+
+                                        schedule.Export(form.XLSLocation, excelExporter.getFileName(row) + ".csv", viewScheduleExportOptions);
+                                    }
+                                    catch
+                                    {
+                                        sb.AppendLine(schedule.Name + " failed to be exported");
+                                    }
                                 }
                             }
                         }
@@ -101,6 +110,7 @@ namespace RSCC_GEN
                     tr.Dispose();
                 }
             }
+            if (sb.Length > 0) doc.print(sb.ToString());
             return Result.Succeeded;
 
         }
