@@ -42,9 +42,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.pdfex = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.cadex = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,8 +54,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.merge = new System.Windows.Forms.CheckBox();
+            this.xlsxEx = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +82,7 @@
             this.exampleLabel.AutoSize = true;
             this.exampleLabel.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Italic);
             this.exampleLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.exampleLabel.Location = new System.Drawing.Point(12, 184);
+            this.exampleLabel.Location = new System.Drawing.Point(12, 182);
             this.exampleLabel.Name = "exampleLabel";
             this.exampleLabel.Size = new System.Drawing.Size(60, 14);
             this.exampleLabel.TabIndex = 3;
@@ -150,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 215);
+            this.label4.Location = new System.Drawing.Point(30, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 17);
             this.label4.TabIndex = 10;
@@ -160,7 +162,7 @@
             // 
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(32, 236);
+            this.comboBox1.Location = new System.Drawing.Point(33, 281);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 11;
@@ -193,17 +195,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox5
+            // pdfex
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Checked = true;
-            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Location = new System.Drawing.Point(89, 372);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(55, 21);
-            this.checkBox5.TabIndex = 23;
-            this.checkBox5.Text = "PDF";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.pdfex.AutoSize = true;
+            this.pdfex.Location = new System.Drawing.Point(89, 372);
+            this.pdfex.Name = "pdfex";
+            this.pdfex.Size = new System.Drawing.Size(55, 21);
+            this.pdfex.TabIndex = 23;
+            this.pdfex.Text = "PDF";
+            this.pdfex.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -214,17 +214,15 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Export";
             // 
-            // checkBox6
+            // cadex
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Checked = true;
-            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(164, 372);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(57, 21);
-            this.checkBox6.TabIndex = 25;
-            this.checkBox6.Text = "CAD";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.cadex.AutoSize = true;
+            this.cadex.Location = new System.Drawing.Point(164, 372);
+            this.cadex.Name = "cadex";
+            this.cadex.Size = new System.Drawing.Size(57, 21);
+            this.cadex.TabIndex = 25;
+            this.cadex.Text = "CAD";
+            this.cadex.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -316,7 +314,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(234, 215);
+            this.label5.Location = new System.Drawing.Point(235, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 17);
             this.label5.TabIndex = 12;
@@ -326,29 +324,54 @@
             // 
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(237, 236);
+            this.comboBox2.Location = new System.Drawing.Point(238, 281);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(160, 24);
             this.comboBox2.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 264);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 17);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "* Color Output";
             // 
             // comboBox3
             // 
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(32, 284);
+            this.comboBox3.Location = new System.Drawing.Point(33, 227);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(160, 24);
-            this.comboBox3.TabIndex = 15;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBox3.TabIndex = 34;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 206);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(156, 17);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "* Export Settings (CAD)";
+            // 
+            // merge
+            // 
+            this.merge.AutoSize = true;
+            this.merge.Checked = true;
+            this.merge.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.merge.Location = new System.Drawing.Point(238, 227);
+            this.merge.Name = "merge";
+            this.merge.Size = new System.Drawing.Size(118, 21);
+            this.merge.TabIndex = 35;
+            this.merge.Text = "Merge in DWG";
+            this.merge.UseVisualStyleBackColor = true;
+            this.merge.CheckedChanged += new System.EventHandler(this.merge_CheckedChanged);
+            // 
+            // xlsxEx
+            // 
+            this.xlsxEx.AutoSize = true;
+            this.xlsxEx.Checked = true;
+            this.xlsxEx.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.xlsxEx.Location = new System.Drawing.Point(238, 369);
+            this.xlsxEx.Name = "xlsxEx";
+            this.xlsxEx.Size = new System.Drawing.Size(62, 21);
+            this.xlsxEx.TabIndex = 36;
+            this.xlsxEx.Text = "Excel";
+            this.xlsxEx.UseVisualStyleBackColor = true;
             // 
             // PrintAndExportForm
             // 
@@ -358,6 +381,10 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CancelButton = this.button3;
             this.ClientSize = new System.Drawing.Size(951, 474);
+            this.Controls.Add(this.xlsxEx);
+            this.Controls.Add(this.merge);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button5);
@@ -365,14 +392,12 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.cadex);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.pdfex);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.location);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox1);
@@ -410,9 +435,9 @@
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox location;
         public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.CheckBox checkBox5;
+        public System.Windows.Forms.CheckBox pdfex;
         public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.CheckBox checkBox6;
+        public System.Windows.Forms.CheckBox cadex;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button3;
         public System.Windows.Forms.Label label10;
@@ -424,7 +449,9 @@
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox comboBox2;
-        public System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.CheckBox merge;
+        public System.Windows.Forms.CheckBox xlsxEx;
     }
 }

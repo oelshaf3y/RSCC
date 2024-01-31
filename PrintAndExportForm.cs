@@ -13,16 +13,17 @@ namespace RSCC_GEN
     {
         public PrintManager printManager;
         public List<string> printers;
-        public List<ColorDepthType> colorDepthTypes;
         public List<ViewSheet> sheets;
-        public List<RasterQualityType> rasterQualityTypes;
         public List<ViewSheetSet> sheetSets;
         public ViewSheetSetting viewSheetSetting;
+        List<ExportDWGSettings> exportSettings;
+        public DWGExportOptions currentSettings;
         UIDocument uidoc;
         Document doc;
         public string savelocation, PDFLocation, DWGLocation, XLSLocation;
         public PrintAndExportForm(ExternalCommandData commandData)
         {
+            currentSettings = null;
             savelocation = "";
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
@@ -31,9 +32,8 @@ namespace RSCC_GEN
             printManager = doc.PrintManager;
             printManager.PrintRange = PrintRange.Select;
             printers = System.Drawing.Printing.PrinterSettings.InstalledPrinters.Cast<string>().ToList(); ;
-            rasterQualityTypes = Enum.GetValues(typeof(RasterQualityType)).Cast<RasterQualityType>().ToList();
             viewSheetSetting = printManager.ViewSheetSetting;
-            colorDepthTypes = Enum.GetValues(typeof(ColorDepthType)).Cast<ColorDepthType>().ToList();
+            exportSettings = new FilteredElementCollector(doc).OfClass(typeof(ExportDWGSettings)).Cast<ExportDWGSettings>().ToList();
             InitializeComponent();
 
         }
@@ -41,17 +41,13 @@ namespace RSCC_GEN
         private void PrintAndExportForm_Load(object sender, EventArgs e)
         {
             comboBox1.Items.AddRange(printers.ToArray());
-            foreach (var s in colorDepthTypes)
-            {
-                comboBox3.Items.Add(s.ToString());
-            }
-
+            comboBox3.Items.AddRange(exportSettings.Select(x => x.Name).ToArray());
+            if (exportSettings.Count() > 0) comboBox3.SelectedIndex = 0;
             comboBox5.Items.AddRange(sheetSets.Select(x => x.Name).ToArray());
             comboBox5.Items.Add("All sheets in the Model");
             comboBox5.SelectedIndex = comboBox5.Items.Count - 1;
-            comboBox3.SelectedIndex = comboBox3.Items.IndexOf("Color");
             exampleLabel.Text = sheets.First().SheetNumber + " - " + sheets.First().Name.ToString();
-            location.Text = "C:\\Users\\Omar\\Desktop\\newPrint";
+            location.Text = "C:\\Users\\Omar\\Desktop\\Out";
             checkedListBox1.SetItemChecked(1, true);
             checkedListBox1.SetItemChecked(2, true);
 
@@ -99,23 +95,26 @@ namespace RSCC_GEN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (checkedListBox1.CheckedItems.Count == 0)
-            {
-                MessageBox.Show("Please select at least one sheet!");
-                return;
-            }
-            if (location.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Please Select a Path to save the files!");
-                return;
-            }
             savelocation = location.Text;
             if (!Directory.Exists(savelocation))
             {
                 MessageBox.Show("Please Select a valid location.");
                 return;
             }
+            if (cadex.Checked || pdfex.Checked)
+            {
+                if (checkedListBox1.CheckedItems.Count == 0)
+                {
+                    MessageBox.Show("Please select at least one sheet!");
+                    return;
+                }
+                if (location.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("Please Select a Path to save the files!");
+                    return;
+                }
 
+            }
             PDFLocation = Path.Combine(savelocation, "PDF");
             DWGLocation = Path.Combine(savelocation, "CAD");
             XLSLocation = Path.Combine(savelocation, "Excel");
@@ -159,6 +158,17 @@ namespace RSCC_GEN
 
         }
 
+        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            currentSettings = exportSettings.ElementAt(comboBox3.SelectedIndex).GetDWGExportOptions();
+            currentSettings.MergedViews = merge.Checked;
+        }
+
+        private void merge_CheckedChanged(object sender, EventArgs e)
+        {
+            currentSettings.MergedViews = merge.Checked;
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             for (var i = 0; i < checkedListBox1.Items.Count; i++)
@@ -178,21 +188,15 @@ namespace RSCC_GEN
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkedListBox1.Items.Clear();
-            ViewSet viewSet;
             if (comboBox5.SelectedItem.ToString() == "All sheets in the Model")
             {
-                viewSet = new ViewSet();
                 foreach (var s in this.sheets)
                 {
                     checkedListBox1.Items.Add(s.SheetNumber + " - " + s.Name);
-                    viewSet.Insert(s);
                 }
-                viewSheetSetting.CurrentViewSheetSet.Views = viewSet;
                 return;
             }
             List<Autodesk.Revit.DB.View> sheets = sheetSets.ElementAt(comboBox5.SelectedIndex).OrderedViewList.Cast<Autodesk.Revit.DB.View>().ToList();
-            viewSet = sheetSets.ElementAt(comboBox5.SelectedIndex).Views;
-            viewSheetSetting.CurrentViewSheetSet.Views = viewSet;
             checkedListBox1.Items.AddRange(sheets.Select(x => x.Name).ToArray());
         }
     }

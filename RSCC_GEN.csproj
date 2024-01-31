@@ -52,6 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeleteCad.cs" />
+    <Compile Include="DGVData.cs" />
+    <Compile Include="ExcelExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcelExport.Designer.cs">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="exportAndPrint.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="Ninja.cs" />
@@ -75,9 +82,15 @@
     <EmbeddedResource Include="Consolidate.resx">
       <DependentUpon>Consolidate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExcelExport.resx">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintAndExportForm.resx">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\DGVData.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
