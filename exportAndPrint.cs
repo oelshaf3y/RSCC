@@ -21,12 +21,12 @@ namespace RSCC_GEN
         List<ViewSchedule> schedules;
         ViewScheduleExportOptions viewScheduleExportOptions;
         ExcelExport excelExporter;
+        public DWGExportOptions currentSettings;
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
-
             sb = new StringBuilder();
             PrintAndExportForm form = new PrintAndExportForm(commandData);
             form.ShowDialog();

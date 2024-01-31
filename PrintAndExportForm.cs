@@ -116,8 +116,8 @@ namespace RSCC_GEN
             }
             if (cadex.Checked && comboBox3.SelectedItem.ToString().Trim().Length == 0)
             {
-                MessageBox.Show("Please create export settings first.");
-                return;
+                currentSettings = new DWGExportOptions();
+                currentSettings.MergedViews = merge.Checked;
             }
             PDFLocation = Path.Combine(savelocation, "PDF");
             DWGLocation = Path.Combine(savelocation, "CAD");
