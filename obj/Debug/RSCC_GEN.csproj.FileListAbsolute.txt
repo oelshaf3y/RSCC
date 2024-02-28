@@ -20,3 +20,13 @@ C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.Consolidate.resourc
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.GenerateResource.cache
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.PrintAndExportForm.resources
 C:\Users\Omar\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.ExcelExport.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\bin\Debug\RSCC_GEN.dll
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\bin\Debug\RSCC_GEN.pdb
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.AssemblyReference.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.Consolidate.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.ExcelExport.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.PrintAndExportForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.GenerateResource.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.CoreCompileInputs.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.dll
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.pdb
