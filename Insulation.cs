@@ -1,6 +1,5 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Electrical;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System;
@@ -28,20 +27,29 @@ namespace RSCC_GEN
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
             List<Element> elems = new List<Element>();
-            wallType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType()
-                .Where(x => x.Name == "RSCC_UltraPly TPO Roofing Membrane_firestone").Cast<WallType>().First();
-            screedRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs).WhereElementIsElementType()
-                .Where(x => x.Name == "RSCC_Screed_50mm").Cast<RoofType>().First();
-            insulationRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs)
-                        .WhereElementIsElementType().Where(x => x.Name == "RSCC_Non Accessible Roof_Waterproof&Insulation_255.5mm").Cast<RoofType>().First();
-            gravelRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs)
-                .WhereElementIsElementType().Where(x => x.Name == "RSCC_Gravel_50mm").Cast<RoofType>().First();
-            screedFloorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
-                        .WhereElementIsElementType().Where(x => x.Name == "RSCC_Screed_50mm").Cast<FloorType>().First();
-            insulationFoorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
-                .WhereElementIsElementType().Where(x => x.Name == "RSCC_Non Accessible Roof_Waterproof&Insulation_255.5mm").Cast<FloorType>().First();
-            gravelFloorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
-                .WhereElementIsElementType().Where(x => x.Name == "RSCC_Gravel_50mm").Cast<FloorType>().First();
+            try
+            {
+
+                wallType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsElementType()
+                    .Where(x => x.Name == "RSCC_UltraPly TPO Roofing Membrane_firestone").Cast<WallType>().First();
+                screedRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs).WhereElementIsElementType()
+                    .Where(x => x.Name == "RSCC_Screed_50mm").Cast<RoofType>().First();
+                insulationRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs)
+                            .WhereElementIsElementType().Where(x => x.Name == "RSCC_Non Accessible Roof_Waterproof&Insulation_155.5mm").Cast<RoofType>().First();
+                gravelRoofType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Roofs)
+                    .WhereElementIsElementType().Where(x => x.Name == "RSCC_Gravel_50mm").Cast<RoofType>().First();
+                screedFloorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
+                            .WhereElementIsElementType().Where(x => x.Name == "RSCC_Screed_50mm").Cast<FloorType>().First();
+                insulationFoorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
+                    .WhereElementIsElementType().Where(x => x.Name == "RSCC_Non Accessible Roof_Waterproof&Insulation_155.5mm").Cast<FloorType>().First();
+                gravelFloorType = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors)
+                    .WhereElementIsElementType().Where(x => x.Name == "RSCC_Gravel_50mm").Cast<FloorType>().First();
+            }
+            catch
+            {
+                doc.print("Please Load necessary Family Types and Profile");
+                return Result.Cancelled;
+            }
             if (uidoc.Selection.GetElementIds().Count > 0)
             {
                 elems = uidoc.Selection.GetElementIds().Select(x => doc.GetElement(x)).ToList();
@@ -76,13 +84,34 @@ namespace RSCC_GEN
                             catch { }
                         }
                     }
+                    uidoc.Selection.SetElementIds(ids.Distinct().ToArray());
+                    doc.ActiveView.HideElementsTemporary(ids.Distinct().ToArray());
+                    List<RevitLinkType> links = new FilteredElementCollector(doc).OfClass(typeof(RevitLinkType)).Cast<RevitLinkType>().ToList();
+                    StringBuilder sb = new StringBuilder();
+                    try
+                    {
+                        List<ElementId> ids = links.Select(x => x.GetRootId()).Distinct().ToList();
+                        foreach (RevitLinkType linkType in ids.Select(x => doc.GetElement(x) as RevitLinkType))
+                        {
+
+                            doc.Delete(linkType.Id);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        sb.AppendLine(ex.ToString());
+                        sb.AppendLine(ex.Message);
+                        sb.AppendLine(ex.StackTrace);
+                        doc.print(sb);
+                    }
+
                     tr.Commit();
                 }
                 tg.Assimilate();
             }
 
 
-            uidoc.Selection.SetElementIds(ids.Distinct().ToArray());
+
             return Result.Succeeded;
         }
 
@@ -217,4 +246,6 @@ namespace RSCC_GEN
             else return true;
         }
     }
+
+    
 }

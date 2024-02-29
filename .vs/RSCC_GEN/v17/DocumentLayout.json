@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\deletegroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:deletegroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,15 +42,28 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeleteGroups.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\DeleteGroups.cs",
+              "RelativeDocumentMoniker": "DeleteGroups.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\DeleteGroups.cs",
+              "RelativeToolTip": "DeleteGroups.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAoAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T11:26:42.691Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "test.cs",
               "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\test.cs",
               "RelativeDocumentMoniker": "test.cs",
               "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\test.cs",
               "RelativeToolTip": "test.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAgAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAIwCIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T11:35:30.788Z"
+              "WhenOpened": "2024-02-27T11:35:30.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,7 +73,7 @@
               "RelativeDocumentMoniker": "Insulation.cs",
               "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Insulation.cs",
               "RelativeToolTip": "Insulation.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAQwFYAAAAJAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAD4v2oAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-27T09:48:35.79Z",
               "EditorCaption": ""

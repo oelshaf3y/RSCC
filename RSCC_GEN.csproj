@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeleteCad.cs" />
+    <Compile Include="DeleteGroups.cs" />
     <Compile Include="DGVData.cs" />
     <Compile Include="ExcelExport.cs">
       <SubType>Form</SubType>
@@ -95,4 +96,12 @@
     <None Include="Properties\DataSources\DGVData.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)RSCC_GEN.dll" "Z:\RSCC Server\Engineers Temporary Folders\Eng. Omar.Elshafey\addins\C#\RSCC_GEN.dll"
+copy "$(TargetDir)RSCC_GEN.pdb" "Z:\RSCC Server\Engineers Temporary Folders\Eng. Omar.Elshafey\addins\C#\RSCC_GEN.pdb"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
