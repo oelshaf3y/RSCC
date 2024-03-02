@@ -4,12 +4,8 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
 
 namespace RSCC_GEN
 {
@@ -78,7 +74,6 @@ namespace RSCC_GEN
                         {
                             try
                             {
-
                                 doc.Delete(view.Id);
                             }
                             catch { }
@@ -217,6 +212,7 @@ namespace RSCC_GEN
                     {
                         //sb.AppendLine(curve.ToString());
                         Line c = curve as Line;
+                        if (c == null) continue;
                         XYZ perpendicular = new XYZ(-c.Direction.Y, c.Direction.X, c.Direction.Z);
                         Line temp = Line.CreateBound(c.Evaluate(0.5, true), mid);
                         Line nc;
@@ -247,5 +243,5 @@ namespace RSCC_GEN
         }
     }
 
-    
+
 }
