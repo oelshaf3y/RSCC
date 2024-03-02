@@ -64,20 +64,23 @@ namespace RSCC_GEN
                     if (elem is Floor) floorInsulation(elem as Floor);
                     if (elem is FootPrintRoof) roofInsulation(elem as FootPrintRoof);
                 }
-                List<View> views = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>().ToList();
+                List<View> views = new FilteredElementCollector(doc)
+                   .OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>()
+                   .Where(x => x.ViewType != ViewType.Legend)
+                   .ToList();
                 using (Transaction tr = new Transaction(doc, "Delete Views"))
                 {
                     tr.Start();
                     foreach (View view in views)
                     {
-                        if (checkView(view))
+                        try
                         {
-                            try
+                            if (checkView(view))
                             {
                                 doc.Delete(view.Id);
                             }
-                            catch { }
                         }
+                        catch { }
                     }
                     uidoc.Selection.SetElementIds(ids.Distinct().ToArray());
                     doc.ActiveView.HideElementsTemporary(ids.Distinct().ToArray());

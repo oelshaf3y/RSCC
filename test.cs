@@ -3,10 +3,8 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RSCC_GEN
 {
@@ -19,30 +17,31 @@ namespace RSCC_GEN
         {
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
-            List<RevitLinkType> links = new FilteredElementCollector(doc).OfClass(typeof(RevitLinkType)).Cast<RevitLinkType>().ToList();
             StringBuilder sb = new StringBuilder();
-            using (Transaction tr = new Transaction(doc, "Delete Links"))
+            try
             {
-                tr.Start();
-                try
+                List<View> views = new FilteredElementCollector(doc)
+                    .OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>()
+                    .Where(x => x.ViewType != ViewType.Legend)
+                    .ToList();
+                foreach (View view in views)
                 {
-                    List<ElementId> ids = links.Select(x => x.GetRootId()).Distinct().ToList();
-                    foreach (RevitLinkType linkType in ids.Select(x => doc.GetElement(x) as RevitLinkType))
-                    {
-
-                        doc.Delete(linkType.Id);
-                    }
+                    sb.AppendLine(view.Name);
                 }
-                catch (Exception ex)
-                {
-                    sb.AppendLine(ex.ToString());
-                    sb.AppendLine(ex.Message);
-                    sb.AppendLine(ex.StackTrace);
-                    doc.print(sb);
-                }
-
-                tr.Commit();
             }
+            catch (Exception ex)
+            {
+                sb.AppendLine(ex.ToString());
+                sb.AppendLine(ex.Message);
+                sb.AppendLine(ex.StackTrace);
+                doc.print(sb);
+            }
+            doc.print(sb);
+            //using (Transaction tr = new Transaction(doc, "Delete Links"))
+            //{
+            //tr.Start();
+            //tr.Commit();
+            //}
             return Result.Succeeded;
         }
     }

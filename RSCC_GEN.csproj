@@ -101,7 +101,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)RSCC_GEN.dll" "Z:\RSCC Server\Engineers Temporary Folders\Eng. Omar.Elshafey\addins\C#\RSCC_GEN.dll"
-copy "$(TargetDir)RSCC_GEN.pdb" "Z:\RSCC Server\Engineers Temporary Folders\Eng. Omar.Elshafey\addins\C#\RSCC_GEN.pdb"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
