@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System;
@@ -64,53 +65,58 @@ namespace RSCC_GEN
                     if (elem is Floor) floorInsulation(elem as Floor);
                     if (elem is FootPrintRoof) roofInsulation(elem as FootPrintRoof);
                 }
-                List<View> views = new FilteredElementCollector(doc)
-                   .OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>()
-                   .Where(x => x.ViewType != ViewType.Legend)
-                   .ToList();
-                using (Transaction tr = new Transaction(doc, "Delete Views"))
-                {
-                    tr.Start();
-                    foreach (View view in views)
-                    {
-                        try
-                        {
-                            if (checkView(view))
-                            {
-                                doc.Delete(view.Id);
-                            }
-                        }
-                        catch { }
-                    }
-                    uidoc.Selection.SetElementIds(ids.Distinct().ToArray());
-                    doc.ActiveView.HideElementsTemporary(ids.Distinct().ToArray());
-                    List<RevitLinkType> links = new FilteredElementCollector(doc).OfClass(typeof(RevitLinkType)).Cast<RevitLinkType>().ToList();
-                    StringBuilder sb = new StringBuilder();
-                    try
-                    {
-                        List<ElementId> ids = links.Select(x => x.GetRootId()).Distinct().ToList();
-                        foreach (RevitLinkType linkType in ids.Select(x => doc.GetElement(x) as RevitLinkType))
-                        {
-
-                            doc.Delete(linkType.Id);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        sb.AppendLine(ex.ToString());
-                        sb.AppendLine(ex.Message);
-                        sb.AppendLine(ex.StackTrace);
-                        doc.print(sb);
-                    }
-
-                    tr.Commit();
-                }
+                deleteViewsAndLinks();
                 tg.Assimilate();
             }
 
 
 
             return Result.Succeeded;
+        }
+
+        private void deleteViewsAndLinks()
+        {
+            List<View> views = new FilteredElementCollector(doc)
+                   .OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>()
+                   .Where(x => x.ViewType != ViewType.Legend)
+                   .ToList();
+            using (Transaction tr = new Transaction(doc, "Delete Views"))
+            {
+                tr.Start();
+                foreach (View view in views)
+                {
+                    try
+                    {
+                        if (checkView(view))
+                        {
+                            doc.Delete(view.Id);
+                        }
+                    }
+                    catch { }
+                }
+                uidoc.Selection.SetElementIds(ids.Distinct().ToArray());
+                doc.ActiveView.HideElementsTemporary(ids.Distinct().ToArray());
+                List<RevitLinkType> links = new FilteredElementCollector(doc).OfClass(typeof(RevitLinkType)).Cast<RevitLinkType>().ToList();
+                StringBuilder sb = new StringBuilder();
+                try
+                {
+                    List<ElementId> ids = links.Select(x => x.GetRootId()).Distinct().ToList();
+                    foreach (RevitLinkType linkType in ids.Select(x => doc.GetElement(x) as RevitLinkType))
+                    {
+
+                        doc.Delete(linkType.Id);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    sb.AppendLine(ex.ToString());
+                    sb.AppendLine(ex.Message);
+                    sb.AppendLine(ex.StackTrace);
+                    doc.print(sb);
+                }
+
+                tr.Commit();
+            }
         }
 
         private void roofInsulation(FootPrintRoof roof)
@@ -146,24 +152,82 @@ namespace RSCC_GEN
                 gravel.ChangeTypeId(gravelRoofType.Id);
                 foreach (ModelCurveArray curveArr in roof.GetProfiles())
                 {
-                    foreach (ModelLine modLine in curveArr)
+                    foreach (CurveElement modLine in curveArr)
                     {
-                        Curve curve = modLine.GeometryCurve;
-                        Line c = curve as Line;
-                        XYZ perpendicular = new XYZ(-c.Direction.Y, c.Direction.X, c.Direction.Z);
-                        Line temp = Line.CreateBound(c.Evaluate(0.5, true), mid);
-                        Line nc;
-                        if (perpendicular.AngleTo(temp.Direction) > Math.PI / 2)
+                        if (modLine.GeometryCurve is Arc)
                         {
-                            nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular.Negate() * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular.Negate() * 0.75 / 304.8));
-                        }
-                        else
-                        {
-                            nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular * 0.75 / 304.8));
+                            Arc arc = modLine.GeometryCurve as Arc;
+                            XYZ center = arc.Center;
+                            double r = arc.Radius;
+                            XYZ p1 = arc.GetEndPoint(0);
+                            XYZ p2 = arc.GetEndPoint(1);
+                            Line line1 = Line.CreateBound(p1, center);
+                            Line line2 = Line.CreateBound(p2, center);
+                            Line temp1 = Line.CreateBound(p1, mid);
+                            Line temp2 = Line.CreateBound(p2, mid);
+                            XYZ np1, np2, np3;
+                            double nr = 0;
+                            if (line1.Direction.AngleTo(temp1.Direction) <= Math.PI / 2)
+                            {
+                                np1 = p1.Add(0.75 / 304.8 * line1.Direction);
+                                nr = r - 0.75 / 304.8;
+                            }
+                            else
+                            {
+                                np1 = p1.Add(0.75 / 304.8 * line1.Direction.Negate());
+                                nr = r + 0.75 / 304.8;
+                            }
+                            if (line2.Direction.AngleTo(temp2.Direction) <= Math.PI / 2)
+                            {
+                                np2 = p2.Add(0.75 / 304.8 * line2.Direction);
+                            }
+                            else
+                            {
+                                np2 = p2.Add(0.75 / 304.8 * line2.Direction.Negate());
+                            }
+                            double angle = line1.Direction.Negate().AngleTo(line2.Direction.Negate());
+                            XYZ temp = new XYZ(-line1.Direction.Y, line1.Direction.X, line1.Direction.Z);
+                            np3 = center.Add(nr * Math.Cos(angle / 2) * line1.Direction.Negate()).Add(nr * Math.Sin(angle / 2) * temp);
+                            Line tempLine = Line.CreateBound(center, np3.Add((np3 - center)));
+                            if (tempLine.Intersect(arc) != SetComparisonResult.Disjoint)
+                            {
 
+                                Arc a = Arc.Create(np1, np2, np3);
+                                if (a == null) continue;
+                                Wall wall = Wall.Create(doc, a, wallType.Id, roof.LevelId, 455.5 / 304.8, Insu.LookupParameter("Base Offset From Level").AsDouble(), false, false);
+                                ids.Add(wall.Id);
+                            }
+                            else
+                            {
+                                np3 = center.Add(nr * Math.Cos(angle / 2) * line1.Direction.Negate()).Add(nr * Math.Sin(angle / 2) * temp.Negate());
+                                Arc a = Arc.Create(np1, np2, np3);
+                                if (a == null) continue;
+                                Wall wall = Wall.Create(doc, a, wallType.Id, roof.LevelId, 455.5 / 304.8, Insu.LookupParameter("Base Offset From Level").AsDouble(), false, false);
+                                ids.Add(wall.Id);
+                            }
                         }
-                        Wall wall = Wall.Create(doc, nc, wallType.Id, roof.LevelId, 455.5 / 304.8, Insu.LookupParameter("Base Offset From Level").AsDouble(), false, false);
-                        ids.Add(wall.Id);
+                        else if (modLine.GeometryCurve is Curve)
+                        {
+
+                            Curve curve = modLine.GeometryCurve;
+                            Line c = curve as Line;
+                            if (c == null) continue;
+                            XYZ perpendicular = new XYZ(-c.Direction.Y, c.Direction.X, c.Direction.Z);
+                            Line temp = Line.CreateBound(c.Evaluate(0.5, true), mid);
+                            Line nc;
+                            if (perpendicular.AngleTo(temp.Direction) > Math.PI / 2)
+                            {
+                                nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular.Negate() * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular.Negate() * 0.75 / 304.8));
+                            }
+                            else
+                            {
+                                nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular * 0.75 / 304.8));
+
+                            }
+                            Wall wall = Wall.Create(doc, nc, wallType.Id, roof.LevelId, 455.5 / 304.8, Insu.LookupParameter("Base Offset From Level").AsDouble(), false, false);
+                            ids.Add(wall.Id);
+                        }
+
                     }
                 }
                 tr.Commit();
@@ -213,23 +277,79 @@ namespace RSCC_GEN
                 {
                     foreach (Curve curve in curveArray)
                     {
-                        //sb.AppendLine(curve.ToString());
-                        Line c = curve as Line;
-                        if (c == null) continue;
-                        XYZ perpendicular = new XYZ(-c.Direction.Y, c.Direction.X, c.Direction.Z);
-                        Line temp = Line.CreateBound(c.Evaluate(0.5, true), mid);
-                        Line nc;
-                        if (perpendicular.AngleTo(temp.Direction) > Math.PI / 2)
+                        if (curve is Arc)
                         {
-                            nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular.Negate() * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular.Negate() * 0.75 / 304.8));
+                            Arc arc = curve as Arc;
+                            XYZ center = arc.Center;
+                            double r = arc.Radius;
+                            XYZ p1 = arc.GetEndPoint(0);
+                            XYZ p2 = arc.GetEndPoint(1);
+                            Line line1 = Line.CreateBound(p1, center);
+                            Line line2 = Line.CreateBound(p2, center);
+                            Line temp1 = Line.CreateBound(p1, mid);
+                            Line temp2 = Line.CreateBound(p2, mid);
+                            XYZ np1, np2, np3;
+                            double nr = 0;
+                            if (line1.Direction.AngleTo(temp1.Direction) <= Math.PI / 2)
+                            {
+                                np1 = p1.Add(0.75 / 304.8 * line1.Direction);
+                                nr = r - 0.75 / 304.8;
+                            }
+                            else
+                            {
+                                np1 = p1.Add(0.75 / 304.8 * line1.Direction.Negate());
+                                nr = r + 0.75 / 304.8;
+                            }
+                            if (line2.Direction.AngleTo(temp2.Direction) <= Math.PI / 2)
+                            {
+                                np2 = p2.Add(0.75 / 304.8 * line2.Direction);
+                            }
+                            else
+                            {
+                                np2 = p2.Add(0.75 / 304.8 * line2.Direction.Negate());
+                            }
+                            double angle = line1.Direction.Negate().AngleTo(line2.Direction.Negate());
+                            XYZ temp = new XYZ(-line1.Direction.Y, line1.Direction.X, line1.Direction.Z);
+                            np3 = center.Add(nr * Math.Cos(angle / 2) * line1.Direction.Negate()).Add(nr * Math.Sin(angle / 2) * temp);
+                            Line tempLine = Line.CreateBound(center, np3.Add((np3 - center)));
+                            if (tempLine.Intersect(arc) != SetComparisonResult.Disjoint)
+                            {
+
+                                Arc a = Arc.Create(np1, np2, np3);
+                                if (a == null) continue;
+                                Wall wall = Wall.Create(doc, a, wallType.Id, floor.LevelId, 455.5 / 304.8, floor.LookupParameter("Height Offset From Level").AsDouble(), false, false);
+                                ids.Add(wall.Id);
+                            }
+                            else
+                            {
+                                np3 = center.Add(nr * Math.Cos(angle / 2) * line1.Direction.Negate()).Add(nr * Math.Sin(angle / 2) * temp.Negate());
+                                Arc a = Arc.Create(np1, np2, np3);
+                                if (a == null) continue;
+                                Wall wall = Wall.Create(doc, a, wallType.Id, floor.LevelId, 455.5 / 304.8, floor.LookupParameter("Height Offset From Level").AsDouble(), false, false);
+                                ids.Add(wall.Id);
+                            }
+
                         }
                         else
                         {
-                            nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular * 0.75 / 304.8));
 
+                            Line c = curve as Line;
+                            if (c == null) continue;
+                            XYZ perpendicular = new XYZ(-c.Direction.Y, c.Direction.X, c.Direction.Z);
+                            Line temp = Line.CreateBound(c.Evaluate(0.5, true), mid);
+                            Line nc;
+                            if (perpendicular.AngleTo(temp.Direction) > Math.PI / 2)
+                            {
+                                nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular.Negate() * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular.Negate() * 0.75 / 304.8));
+                            }
+                            else
+                            {
+                                nc = Line.CreateBound(curve.GetEndPoint(0).Add(perpendicular * 0.75 / 304.8), curve.GetEndPoint(1).Add(perpendicular * 0.75 / 304.8));
+
+                            }
+                            Wall wall = Wall.Create(doc, nc, wallType.Id, floor.LevelId, 455.5 / 304.8, floor.LookupParameter("Height Offset From Level").AsDouble(), false, false);
+                            ids.Add(wall.Id);
                         }
-                        Wall wall = Wall.Create(doc, nc, wallType.Id, floor.LevelId, 455.5 / 304.8, floor.LookupParameter("Height Offset From Level").AsDouble(), false, false);
-                        ids.Add(wall.Id);
                     }
                 }
                 //doc.print(sb.ToString());
