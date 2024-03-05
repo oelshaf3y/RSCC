@@ -19,6 +19,7 @@ namespace RSCC_GEN
         WallType wallType;
         RoofType screedRoofType, insulationRoofType, gravelRoofType;
         List<ElementId> ids;
+        StringBuilder sb = new StringBuilder();
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             uidoc = commandData.Application.ActiveUIDocument;
@@ -69,7 +70,7 @@ namespace RSCC_GEN
                 tg.Assimilate();
             }
 
-
+            if (sb.Length > 0) { doc.print(sb); }
 
             return Result.Succeeded;
         }
@@ -80,6 +81,8 @@ namespace RSCC_GEN
                    .OfCategory(BuiltInCategory.OST_Views).WhereElementIsNotElementType().Cast<View>()
                    .Where(x => x.ViewType != ViewType.Legend)
                    .ToList();
+            List<ViewSheet> sheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType().Cast<ViewSheet>().ToList();
+
             using (Transaction tr = new Transaction(doc, "Delete Views"))
             {
                 tr.Start();
@@ -91,6 +94,14 @@ namespace RSCC_GEN
                         {
                             doc.Delete(view.Id);
                         }
+                    }
+                    catch { }
+                }
+                foreach (ViewSheet sheet in sheets)
+                {
+                    try
+                    {
+                        doc.Delete(sheet.Id);
                     }
                     catch { }
                 }
@@ -161,10 +172,20 @@ namespace RSCC_GEN
                             double r = arc.Radius;
                             XYZ p1 = arc.GetEndPoint(0);
                             XYZ p2 = arc.GetEndPoint(1);
-                            Line line1 = Line.CreateBound(p1, center);
-                            Line line2 = Line.CreateBound(p2, center);
-                            Line temp1 = Line.CreateBound(p1, mid);
-                            Line temp2 = Line.CreateBound(p2, mid);
+                            Line line1, line2, temp1, temp2;
+                            try
+                            {
+
+                                line1 = Line.CreateBound(p1, center);
+                                line2 = Line.CreateBound(p2, center);
+                                temp1 = Line.CreateBound(p1, mid);
+                                temp2 = Line.CreateBound(p2, mid);
+                            }
+                            catch
+                            {
+                                sb.AppendLine("Curve may be too short, please consider creating wall elements manually.");
+                                continue;
+                            }
                             XYZ np1, np2, np3;
                             double nr = 0;
                             if (line1.Direction.AngleTo(temp1.Direction) <= Math.PI / 2)
@@ -284,10 +305,21 @@ namespace RSCC_GEN
                             double r = arc.Radius;
                             XYZ p1 = arc.GetEndPoint(0);
                             XYZ p2 = arc.GetEndPoint(1);
-                            Line line1 = Line.CreateBound(p1, center);
-                            Line line2 = Line.CreateBound(p2, center);
-                            Line temp1 = Line.CreateBound(p1, mid);
-                            Line temp2 = Line.CreateBound(p2, mid);
+                            Line line1, line2, temp1, temp2;
+                            try
+                            {
+
+                                line1 = Line.CreateBound(p1, center);
+                                line2 = Line.CreateBound(p2, center);
+                                temp1 = Line.CreateBound(p1, mid);
+                                temp2 = Line.CreateBound(p2, mid);
+                            }
+                            catch
+                            {
+
+                                sb.AppendLine("Curve length maybe too short, please consider creating wall elements manually");
+                                continue;
+                            }
                             XYZ np1, np2, np3;
                             double nr = 0;
                             if (line1.Direction.AngleTo(temp1.Direction) <= Math.PI / 2)
