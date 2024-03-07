@@ -80,6 +80,13 @@
       <DependentUpon>Consolidate.cs</DependentUpon>
     </Compile>
     <Compile Include="test.cs" />
+    <Compile Include="WPCCopy.cs" />
+    <Compile Include="WPCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WPCForm.Designer.cs">
+      <DependentUpon>WPCForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Consolidate.resx">
@@ -90,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrintAndExportForm.resx">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WPCForm.resx">
+      <DependentUpon>WPCForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

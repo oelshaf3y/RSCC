@@ -2,6 +2,7 @@
 using Autodesk.Revit.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace RSCC_GEN
 {
@@ -9,7 +10,7 @@ namespace RSCC_GEN
     {
         public static void print(this Document doc, object mes)
         {
-            TaskDialog.Show("Message", mes.ToString());
+            MessageBox.Show(mes.ToString());
         }
 
         public static Solid getSolid(this Document doc, Element elem)
