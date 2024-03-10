@@ -63,6 +63,7 @@
     <Compile Include="exportAndPrint.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="Insulation.cs" />
+    <Compile Include="Jubail.cs" />
     <Compile Include="Ninja.cs" />
     <Compile Include="PrintAndExportForm.cs">
       <SubType>Form</SubType>

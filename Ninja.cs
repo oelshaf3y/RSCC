@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -81,6 +82,45 @@ namespace RSCC_GEN
                 {
                     return solids.OrderByDescending(x => x.Volume).ElementAt(0);
                 }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static Face getFace(this Solid s, string location)
+        {
+            if (location.ToLower() == "top")
+            {
+
+                List<PlanarFace> faces = new List<PlanarFace>();
+                foreach (Face face in s.Faces)
+                {
+                    PlanarFace pf = face as PlanarFace;
+                    if (pf == null) continue;
+                    if (Math.Abs(pf.FaceNormal.AngleTo(new XYZ(0, 0, 1))) < Math.PI / 18)
+                    {
+                        faces.Add(pf);
+                    }
+                }
+                if (faces.Count == 0) return null;
+                return faces.OrderByDescending(x => x.Origin.Z)?.First();
+            }
+            else if (location.ToLower() == "bot")
+            {
+                List<PlanarFace> faces = new List<PlanarFace>();
+                foreach (Face face in s.Faces)
+                {
+                    PlanarFace pf = face as PlanarFace;
+                    if (pf == null) continue;
+                    if (Math.Abs(pf.FaceNormal.AngleTo(new XYZ(0, 0, -1))) < Math.PI / 18)
+                    {
+                        faces.Add(pf);
+                    }
+                }
+                if (faces.Count == 0) return null;
+                return faces.OrderBy(x => x.Origin.Z)?.First();
             }
             else
             {

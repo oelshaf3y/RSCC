@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace RSCC_GEN
 {
@@ -21,39 +22,9 @@ namespace RSCC_GEN
         {
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
-            List<Double> Xs = new List<Double>();
-            List<Double> Ys = new List<Double>();
-            List<Double> Zs = new List<Double>();
-            List<Element> selected = uidoc.Selection.PickObjects(ObjectType.Element).Select(x => doc.GetElement(x)).ToList();
-
-            foreach (Element el in selected)
-            {
-                BoundingBoxXYZ bx = el.get_BoundingBox(null);
-                Xs.Add(bx.Min.X);
-                Xs.Add(bx.Max.X);
-                Ys.Add(bx.Min.Y);
-                Ys.Add(bx.Max.Y);
-                Zs.Add(bx.Min.Z);
-                Zs.Add(bx.Max.Z);
-
-            }
-            XYZ min, max;
-            min = new XYZ(Xs.OrderBy(x => x).First(), Ys.OrderBy(x => x).First(), Zs.OrderBy(x => x).First());
-            max = new XYZ(Xs.OrderByDescending(x => x).First(), Ys.OrderByDescending(x => x).First(), Zs.OrderByDescending(x => x).First());
-            Element elem = doc.GetElement(uidoc.Selection.PickObject(ObjectType.Element).ElementId);
-            Solid s = doc.getSolid(elem);
-            Face f = getTopFace(s);
-            drawTopFace(f);
-            XYZ avg = 0.5 * (min + max);
-            Line l = Line.CreateBound(avg.Add(10 * XYZ.BasisZ), avg.Add(-10 * XYZ.BasisZ));
-            using (Transaction tr = new Transaction(doc, "Draw Line"))
-            {
-                tr.Start();
-                DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel)).SetShape(new List<GeometryObject> { l });
-                tr.Commit();
-                tr.Dispose();
-            }
-            if (f.Intersect(l) == SetComparisonResult.Disjoint) doc.print("no intersection");
+            FilteredElementCollector levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels);
+            doc.print(levels.Count());
+            uidoc.Selection.SetElementIds(levels.ToElementIds());
             return Result.Succeeded;
         }
         public void drawBBX()
