@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,10 +37,6 @@
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "test.cs",
@@ -48,7 +44,7 @@
               "RelativeDocumentMoniker": "test.cs",
               "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\test.cs",
               "RelativeToolTip": "test.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAABTAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-09T13:52:45.492Z",
               "EditorCaption": ""
@@ -63,8 +59,7 @@
               "RelativeToolTip": "Jubail.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAACgAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T13:51:36.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-09T13:51:36.541Z"
             },
             {
               "$type": "Document",
@@ -76,8 +71,7 @@
               "RelativeToolTip": "RebarSets\\RebarAnnotations\\RebarAnno.cs",
               "ViewState": "AQIAAIAAAAAAAAAAAAAAAJAAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T13:48:55.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-09T13:48:55.447Z"
             }
           ]
         }

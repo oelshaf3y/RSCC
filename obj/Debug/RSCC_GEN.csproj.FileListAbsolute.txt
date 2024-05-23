@@ -31,3 +31,6 @@ C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.csproj.Cor
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.dll
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.pdb
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.WPCForm.resources
+C:\Users\Omar.Elshafey\Source\Repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.locationForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.QTYForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\Debug\RSCC_GEN.WSForm.resources

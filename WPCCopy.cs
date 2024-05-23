@@ -21,10 +21,13 @@ namespace RSCC_GEN
         XYZ start = XYZ.Zero;
         double rotation = 0;
         double otherRotation = 0;
+        double tilt = 0;
+        double otherTilt= 0;   
         List<Element> otherUnits;
         List<ElementId> selectedWPC;
         Element hostUnit;
         string selectionCheck;
+        StringBuilder sb = new StringBuilder();
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             uidoc = commandData.Application.ActiveUIDocument;
@@ -73,6 +76,7 @@ namespace RSCC_GEN
                 }
                 tg.Assimilate();
             }
+            //doc.print(sb);
             return Result.Succeeded;
         }
 
@@ -149,6 +153,12 @@ namespace RSCC_GEN
                             if (dir.AngleTo(tempDir) > Math.PI && dir.AngleTo(tempDir) < 3 / 2 * Math.PI)
                             {
                                 dir = l.Direction.Negate();
+                                tilt = Math.Asin((l.GetEndPoint(0).Z - l.GetEndPoint(1).Z) / l.Length);
+                            }
+                            else
+                            {
+                                tilt = Math.Asin((l.GetEndPoint(1).Z - l.GetEndPoint(0).Z) / l.Length);
+
                             }
                         }
                         else
@@ -160,6 +170,11 @@ namespace RSCC_GEN
                             if (dir.AngleTo(tempDir) > Math.PI && dir.AngleTo(tempDir) < 3 / 2 * Math.PI)
                             {
                                 dir = l.Direction.Negate();
+                                tilt = Math.Asin((l.GetEndPoint(0).Z - l.GetEndPoint(1).Z) / l.Length);
+                            }
+                            else
+                            {
+                                tilt = Math.Asin((l.GetEndPoint(1).Z - l.GetEndPoint(0).Z) / l.Length);
                             }
                             lastDir = dir;
                             lastUnit = true;
@@ -169,14 +184,20 @@ namespace RSCC_GEN
                     using (Transaction tr = new Transaction(doc, "copy"))
                     {
                         tr.Start();
+                        int mod = 1;
                         //DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel)).SetShape(new List<GeometryObject> { Line.CreateBound(mid, mid.Add(dir * 1000 / 304.8)) });
-                        if (Math.Abs(start.DistanceTo(mid.Add(3 * dir))) > Math.Abs(start.DistanceTo(mid.Add(3 * dir.Negate())))) dir = dir.Negate();
+                        if (Math.Abs(start.DistanceTo(mid.Add(3 * dir))) > Math.Abs(start.DistanceTo(mid.Add(3 * dir.Negate()))))
+                        {
+                            dir = dir.Negate();
+                            mod = -1;
+                        }
                         selectedWPC = ElementTransformUtils.CopyElements(doc, selectedWPC, 1000 / 304.8 * dir).ToList();
                         rotation = ((LocationPoint)hostUnits[index].Location).Rotation;
                         if (index < hostUnits.Count - 1 && hostFace.Intersect(Line.CreateUnbound(mid.Add(1000 / 304.8 * dir), XYZ.BasisZ)) == SetComparisonResult.Disjoint)
                         {
                             rotation = ((LocationPoint)hostUnits[index + 1].Location).Rotation;
                             ElementTransformUtils.RotateElements(doc, selectedWPC, Line.CreateUnbound(mid, XYZ.BasisZ), rotation - otherRotation);
+                            ElementTransformUtils.RotateElements(doc,selectedWPC, Line.CreateUnbound(mid,new XYZ(-dir.Y,dir.X,dir.Z)),mod *(tilt - otherTilt));
                         }
                         else
                         {
@@ -189,10 +210,14 @@ namespace RSCC_GEN
                             {
 
                                 ElementTransformUtils.RotateElements(doc, selectedWPC, Line.CreateUnbound(mid, XYZ.BasisZ), rotation - otherRotation);
+                                ElementTransformUtils.RotateElements(doc, selectedWPC, Line.CreateUnbound(mid, new XYZ(-dir.Y, dir.X, dir.Z)), mod * (tilt - otherTilt));
+
                             }
                         }
                         otherRotation = rotation;
+                        otherTilt = tilt;
                         lastDir = dir;
+                        sb.AppendLine((tilt * 180 / Math.PI).ToString());
                         tr.Commit();
                         tr.Dispose();
                     }

@@ -62,14 +62,32 @@
     </Compile>
     <Compile Include="exportAndPrint.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
+    <Compile Include="GridsWS.cs" />
+    <Compile Include="HostedBars.cs" />
     <Compile Include="Insulation.cs" />
     <Compile Include="Jubail.cs" />
+    <Compile Include="locationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="locationForm.Designer.cs">
+      <DependentUpon>locationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocationIssue.cs" />
     <Compile Include="Ninja.cs" />
+    <Compile Include="NotOnSheet.cs" />
+    <Compile Include="OnGoing.cs" />
     <Compile Include="PrintAndExportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrintAndExportForm.Designer.cs">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QTY.cs" />
+    <Compile Include="QTYForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QTYForm.Designer.cs">
+      <DependentUpon>QTYForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RebarAnno.cs" />
     <Compile Include="RebarSet.cs" />
@@ -88,6 +106,12 @@
     <Compile Include="WPCForm.Designer.cs">
       <DependentUpon>WPCForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSForm.Designer.cs">
+      <DependentUpon>WSForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Consolidate.resx">
@@ -96,11 +120,20 @@
     <EmbeddedResource Include="ExcelExport.resx">
       <DependentUpon>ExcelExport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="locationForm.resx">
+      <DependentUpon>locationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintAndExportForm.resx">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QTYForm.resx">
+      <DependentUpon>QTYForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WPCForm.resx">
       <DependentUpon>WPCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSForm.resx">
+      <DependentUpon>WSForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
