@@ -61,6 +61,7 @@
       <DependentUpon>ExcelExport.cs</DependentUpon>
     </Compile>
     <Compile Include="exportAndPrint.cs" />
+    <Compile Include="FixSheet.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="GridsWS.cs" />
     <Compile Include="HostedBars.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Consolidate.Designer.cs">
       <DependentUpon>Consolidate.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResetViewState.cs" />
+    <Compile Include="SaveViewState.cs" />
     <Compile Include="test.cs" />
     <Compile Include="WPCCopy.cs" />
     <Compile Include="WPCForm.cs">

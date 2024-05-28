@@ -14,6 +14,16 @@ namespace RSCC_GEN
             MessageBox.Show(mes.ToString());
         }
 
+        public static TaskDialogResult YesNoMessage(this Document doc,object mes)
+        {
+            TaskDialog dialog = new TaskDialog("Question?")
+            {
+                MainInstruction = mes.ToString(),
+                CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No
+            };
+            return dialog.Show();
+        } 
+
         public static Solid getSolid(this Document doc, Element elem)
         {
             Options options = new Options();

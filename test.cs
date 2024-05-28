@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace RSCC_GEN
@@ -20,11 +19,8 @@ namespace RSCC_GEN
         public Document doc { get; set; }
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            uidoc = commandData.Application.ActiveUIDocument;
-            doc = uidoc.Document;
-            FilteredElementCollector levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels);
-            doc.print(levels.Count());
-            uidoc.Selection.SetElementIds(levels.ToElementIds());
+            
+            //doc.print(sb.ToString());
             return Result.Succeeded;
         }
         public void drawBBX()
