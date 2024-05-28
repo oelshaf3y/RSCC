@@ -4,8 +4,6 @@ using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RSCC_GEN
 {
@@ -20,6 +18,11 @@ namespace RSCC_GEN
             doc = uidoc.Document;
             List<ElementId> ids = new List<ElementId>();
             View activeView = doc.ActiveView;
+            if (activeView is ViewSheet || activeView is ViewSchedule)
+            {
+                doc.print("Active view must be a view not a sheet or a schedule");
+                return Result.Failed;
+            }
             Parameter state = activeView.LookupParameter("View State");
             if (state == null)
             {

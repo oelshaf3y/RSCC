@@ -2,8 +2,13 @@
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace RSCC_GEN
 {
@@ -14,7 +19,7 @@ namespace RSCC_GEN
             MessageBox.Show(mes.ToString());
         }
 
-        public static TaskDialogResult YesNoMessage(this Document doc,object mes)
+        public static TaskDialogResult YesNoMessage(this Document doc, object mes)
         {
             TaskDialog dialog = new TaskDialog("Question?")
             {
@@ -22,7 +27,7 @@ namespace RSCC_GEN
                 CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No
             };
             return dialog.Show();
-        } 
+        }
 
         public static Solid getSolid(this Document doc, Element elem)
         {
@@ -136,6 +141,16 @@ namespace RSCC_GEN
             {
                 return null;
             }
+        }
+
+        public static ImageSource ToImageSource(this Icon icon)
+        {
+            ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(
+                icon.Handle,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+
+            return imageSource;
         }
     }
 }

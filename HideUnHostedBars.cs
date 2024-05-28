@@ -1,20 +1,14 @@
-﻿using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
+﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RSCC_GEN
 {
     [TransactionAttribute(TransactionMode.Manual)]
-    internal class FixSheet : IExternalCommand
+    internal class HideUnHostedBars : IExternalCommand
     {
         UIDocument uidoc;
         Document doc;

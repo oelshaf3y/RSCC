@@ -1,0 +1,17 @@
+﻿<RevitAddIn>
+	<AddIn Type="Application">
+		<Name>RSCC</Name>
+		<Publisher>Omar O.El-Shafey</Publisher>
+		<Assembly>RSCC_GEN.dll</Assembly>
+		<AddInId>B56588C7-55CA-4CC0-8E13-D755B13A2EB2</AddInId>
+		<FullClassName>RSCC_GEN.App</FullClassName>
+		<Text>rscc.com.sa|O.elshaf3y</Text>
+		<VendorId>Omar El-Shafey|01147985807</VendorId>
+		<VendorDescription>
+			Omar El-Shafey
+			01147985807
+			o.elshaf3y@gmail.com
+		</VendorDescription>
+		<VisabilityMode>AlwaysVisible</VisabilityMode>
+	</AddIn>
+</RevitAddIn>

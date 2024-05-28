@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -49,8 +50,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
     <Compile Include="DeleteCad.cs" />
     <Compile Include="DeleteGroups.cs" />
     <Compile Include="DGVData.cs" />
@@ -61,10 +64,10 @@
       <DependentUpon>ExcelExport.cs</DependentUpon>
     </Compile>
     <Compile Include="exportAndPrint.cs" />
-    <Compile Include="FixSheet.cs" />
+    <Compile Include="HideUnHostedBars.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="GridsWS.cs" />
-    <Compile Include="HostedBars.cs" />
+    <Compile Include="ResetSheet.cs" />
     <Compile Include="Insulation.cs" />
     <Compile Include="Jubail.cs" />
     <Compile Include="locationForm.cs">
@@ -82,6 +85,11 @@
     </Compile>
     <Compile Include="PrintAndExportForm.Designer.cs">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="QTY.cs" />
     <Compile Include="QTYForm.cs">
@@ -129,6 +137,10 @@
     <EmbeddedResource Include="PrintAndExportForm.resx">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="QTYForm.resx">
       <DependentUpon>QTYForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +153,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\DGVData.datasource" />
+    <None Include="RSCC.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capture.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restore.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sheets.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rft.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
