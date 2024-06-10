@@ -1,14 +1,12 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Plumbing;
 using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.DB.Plumbing;
-using Autodesk.Revit.UI.Selection;
-using System.Windows.Media;
 
 namespace RSCC_GEN
 {
@@ -16,12 +14,13 @@ namespace RSCC_GEN
     internal class PipesOnGrade : IExternalCommand
     {
         UIDocument uidoc;
-        Document doc;
+        Document doc, linkedDoc;
         List<DetailLine> detialLines;
         ElementId pipeTypeId;
         Level level;
         ElementId systemId;
         Element toposolid;
+        StringBuilder sb;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             uidoc = commandData.Application.ActiveUIDocument;
@@ -29,6 +28,8 @@ namespace RSCC_GEN
             pipeTypeId = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_PipeCurves).WhereElementIsElementType().First().Id;
             level = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().First() as Level;
             systemId = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_PipingSystem).WhereElementIsElementType().First().Id;
+            sb = new StringBuilder();
+            List<ElementId> ids = new List<ElementId>();
             //doc.print(systemId);
             //doc.print(pipeTypeId);
             //doc.print(level.Id);
@@ -37,37 +38,38 @@ namespace RSCC_GEN
 
                 detialLines = uidoc.Selection.PickObjects(ObjectType.Element, new RSCCSelectionFilter(x => x.GetType() == typeof(DetailLine), true), "pick detial line")
                     .Select(x => doc.GetElement(x)).Cast<DetailLine>().ToList();
-                toposolid = doc.GetElement(
-                  uidoc.Selection.PickObjects(ObjectType.LinkedElement, new RSCCSelectionFilter(x => x.GetType() == typeof(Toposolid), false), "Pick Toposolid").FirstOrDefault().ElementId
-                    );
-
+                Reference reference = uidoc.Selection.PickObjects(ObjectType.LinkedElement,
+                    new RSCCSelectionFilter(x => x.GetType() == typeof(Toposolid), false), "Pick Toposolid").FirstOrDefault();
+                RevitLinkInstance rli = doc.GetElement(reference.ElementId) as RevitLinkInstance;
+                linkedDoc = rli.GetLinkDocument();
+                //doc.print(linkedDoc.PathName);
+                toposolid = linkedDoc.GetElement(reference.LinkedElementId);
             }
             catch (Exception ex)
             {
-                doc.print(ex.Message);
+                doc.print(ex.StackTrace);
             }
             List<XYZ> points = new List<XYZ>();
-            using (TransactionGroup tg = new TransactionGroup(doc, "Create Solid"))
+            foreach (DetailLine line in detialLines)
             {
-                tg.Start();
-                foreach (DetailLine line in detialLines)
-                {
-                    points.Concat(getProjectionPoints(line.GeometryCurve, toposolid));
-                }
-                tg.RollBack();
+                List<XYZ> projPts = getProjectionPoints(line.GeometryCurve, toposolid);
+                if (projPts.Count == 0) continue;
+                points.AddRange(projPts);
             }
+            doc.print(points.Count.ToString());
             using (Transaction tr = new Transaction(doc, "create pipe"))
             {
                 tr.Start();
-                for (int i = 0; i < points.Count-1; i++)
+                for (int i = 0; i < points.Count - 1; i++)
                 {
 
-                    Pipe.Create(doc, systemId, pipeTypeId, level.Id, points[i], points[i+1]);
+                    ids.Add(Pipe.Create(doc, systemId, pipeTypeId, level.Id, points[i], points[i + 1]).Id);
                 }
                 tr.Commit();
                 tr.Dispose();
             }
-
+            doc.print(sb);
+            uidoc.Selection.SetElementIds(ids);
             return Result.Succeeded;
         }
 
@@ -75,46 +77,33 @@ namespace RSCC_GEN
         {
             List<XYZ> intersectionPts = new List<XYZ>();
             Solid solid = doc.getSolid(toposolid);
-            XYZ startPt = curve.GetEndPoint(0);
-            XYZ endPt = curve.GetEndPoint(1);
-            double offset = 500;
-            XYZ p1 = new XYZ(startPt.X, startPt.Y, startPt.Z + offset);
-            XYZ p2 = new XYZ(startPt.X, startPt.Y, startPt.Z - offset);
-            XYZ p3 = new XYZ(endPt.X, endPt.Y, endPt.Z + offset);
-            XYZ p4 = new XYZ(endPt.X, endPt.Y, endPt.Z - offset);
-            XYZ normal = (endPt - startPt).CrossProduct(new XYZ(0, 0, -1)).Normalize();
-            XYZ origin = curve.Evaluate(0.5, true);
-            CurveLoop loop = new CurveLoop();
-            loop.Append(Line.CreateBound(p1, p2));
-            loop.Append(Line.CreateBound(p2, p3));
-            loop.Append(Line.CreateBound(p3, p4));
-            loop.Append(Line.CreateBound(p4, p1));
-            Solid thinSolid;
-            using (Transaction tr = new Transaction(doc, "create solid"))
+            //if (solid == null) doc.print("Null");
+            //doc.print(sci.ResultType);
+            for (int i = 0; i < curve.Length; i++)
             {
-                tr.Start();
-                thinSolid = GeometryCreationUtilities.CreateExtrusionGeometry(new List<CurveLoop> { loop }, normal, 1);
-                tr.Commit();
-                tr.Dispose();
-            }
-            BooleanOperationsUtils.ExecuteBooleanOperationModifyingOriginalSolid(thinSolid, solid, BooleanOperationsType.Difference);
-            foreach (Face face in thinSolid.Faces)
-            {
-                PlanarFace pf = face as PlanarFace;
-                if (pf != null)
+                XYZ temp = curve.Evaluate(i, false);
+                SolidCurveIntersectionOptions tempOptions = new SolidCurveIntersectionOptions();
+                tempOptions.ResultType = SolidCurveIntersectionMode.CurveSegmentsInside;
+                SolidCurveIntersection tempSCI = solid.IntersectWithCurve(Line.CreateBound(temp, new XYZ(temp.X, temp.Y, temp.Z - 500)), tempOptions);
+                if (tempSCI == null || tempSCI.SegmentCount == 0)
                 {
-                    if (pf.Origin.Z > origin.Z)
-                    {
-                        foreach (Edge edge in pf.EdgeLoops)
-                        {
-                            if (edge.AsCurve().Length >= curve.Length) continue;
-                            if (((Line)edge.AsCurve()).Direction.Z == 1 || ((Line)edge.AsCurve()).Direction.Z == -1) continue;
-                            intersectionPts.Add(edge.AsCurve().GetEndPoint(0));
-                            intersectionPts.Add(edge.AsCurve().GetEndPoint(1));
-                        }
-                    }
+                    sb.AppendLine(i + " (" + temp.ToString() + ")");
+                    continue;
                 }
+                Curve tempC = tempSCI.GetCurveSegment(0);
+                XYZ p1 = tempC.GetEndPoint(0);
+                XYZ p2 = tempC.GetEndPoint(1);
+                if (p1.Z > p2.Z)
+                {
+                    intersectionPts.Add(p1);
+                }
+                else
+                {
+                    intersectionPts.Add(p2);
+                }
+
             }
+            sb.AppendLine("Count= " + intersectionPts.Count.ToString());
             return intersectionPts;
         }
 
