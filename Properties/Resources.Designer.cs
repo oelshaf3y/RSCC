@@ -73,6 +73,16 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon hideUnhosted {
+            get {
+                object obj = ResourceManager.GetObject("hideUnhosted", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon restore {
             get {
                 object obj = ResourceManager.GetObject("restore", resourceCulture);

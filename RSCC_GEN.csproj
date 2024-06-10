@@ -67,6 +67,7 @@
     <Compile Include="HideUnHostedBars.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="GridsWS.cs" />
+    <Compile Include="PipesOnGrade.cs" />
     <Compile Include="ResetSheet.cs" />
     <Compile Include="Insulation.cs" />
     <Compile Include="Jubail.cs" />
@@ -166,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rft.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hideUnhosted.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

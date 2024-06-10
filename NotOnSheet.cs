@@ -3,6 +3,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
 using Autodesk.Revit.UI.Selection;
+using RSCC_GEN;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,23 +18,24 @@ namespace RevitAddin
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            UIApplication application = commandData.Application;
-            Application app = application.Application;
-            UIDocument uidoc = application.ActiveUIDocument;
+            
+            UIDocument uidoc = commandData.Application.ActiveUIDocument;
             Document document = uidoc.Document;
-            FilteredElementCollector views = new FilteredElementCollector(document);
-            views.OfClass(typeof(View));
-            views.WhereElementIsViewIndependent();
-            views.Where(v => v.LookupParameter("View Template") != null);
+            int count = 0;
+            List<View> views = new FilteredElementCollector(document)
+                .OfCategory(BuiltInCategory.OST_Views)
+                .WhereElementIsViewIndependent()
+                .Where(v => v.LookupParameter("View Template") != null)
+                .Cast<View>().Distinct().ToList();
             Parameter sheetNumber;
-            IList<ElementId> viewIds = new List<ElementId>();
-            using (TransactionGroup tg = new TransactionGroup(document, "Delete not on sheets"))
+            using (TransactionGroup tg = new TransactionGroup(document, "Delete unused views"))
             {
 
                 tg.Start();
                 foreach (View view in views)
                 {
-                    if (view != null && view.GetType() != typeof(ViewSheet) && view.GetType() != typeof(ViewSchedule)
+                    if(view ==  null) continue;
+                    if (view.GetType() != typeof(ViewSheet) && view.GetType() != typeof(ViewSchedule)
                         && view.ViewType != ViewType.ProjectBrowser && view.ViewType != ViewType.SystemBrowser)
                     {
                         sheetNumber = view.LookupParameter("Sheet Name");
@@ -45,8 +47,20 @@ namespace RevitAddin
                                 {
 
                                     tx.Start();
+                                    if (view.Id.IntegerValue != document.ActiveView.Id.IntegerValue)
+                                    {
+                                        try
+                                        {
 
-                                    document.Delete(view.Id);
+                                            document.Delete(view.Id);
+                                            count++;
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            document.print(ex.StackTrace);
+                                        }
+
+                                    }
                                     tx.Commit();
                                     tx.Dispose();
                                 }
@@ -55,6 +69,15 @@ namespace RevitAddin
                     }
                 }
                 tg.Assimilate();
+            }
+            if(count > 0)
+            {
+
+            document.print("Total of: "+count+" views have been deleted.");
+            }
+            else
+            {
+                document.print("No views to delete.");
             }
             return Result.Succeeded;
 

@@ -16,30 +16,29 @@ namespace RSCC_GEN
         {
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
-
-            Element Selected = doc.GetElement(uidoc.Selection.PickObject(ObjectType.Element, "pick host"));
+            
             FilteredElementCollector rebar = new FilteredElementCollector(doc, doc.ActiveView.Id).OfCategory(BuiltInCategory.OST_Rebar);
             List<ElementId> ids = new List<ElementId>();
             foreach (Rebar bar in rebar)
             {
-                if (bar.GetHostId().IntegerValue != Selected.Id.IntegerValue)
+                Element elem = doc.GetElement(bar.GetHostId());
+                if (elem.IsHidden(doc.ActiveView))
                 {
                     ids.Add(bar.Id);
                 }
             }
             if (ids.Count == 0)
             {
-                doc.print("every thing is fine");
                 return Result.Cancelled;
             }
-            using (Transaction tr = new Transaction(doc, "Fix View"))
+            using (Transaction tr = new Transaction(doc, "Hide Unhosted Rebar"))
             {
                 tr.Start();
                 doc.ActiveView.HideElements(ids.ToArray());
                 tr.Commit();
                 tr.Dispose();
             }
-            doc.print("every thing is fine");
+            //doc.print("every thing is fine");
             return Result.Succeeded;
         }
 

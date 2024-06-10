@@ -52,8 +52,8 @@ namespace RSCC_GEN
                 List<ViewSheet> sheets = new FilteredElementCollector(doc)
                     .OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType()
                     .Where(x => x is ViewSheet).Cast<ViewSheet>().ToList();
-                doc.print(sheets.Count);
-                using (TransactionGroup tg = new TransactionGroup(doc, "Fix Sheet"))
+                //doc.print(sheets.Count);
+                using (TransactionGroup tg = new TransactionGroup(doc, "Fix All Sheets"))
                 {
                     tg.Start();
                     foreach (ViewSheet sheet in sheets)
@@ -64,7 +64,7 @@ namespace RSCC_GEN
                 }
                 if (sb.Length > 0)
                 {
-                    doc.print(sb.ToString());
+                    doc.print("Some views have not been reset because no stored data was found.");
                 }
                 return Result.Succeeded;
             }

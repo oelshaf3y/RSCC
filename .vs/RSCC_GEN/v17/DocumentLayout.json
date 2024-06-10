@@ -1,57 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\",
+  "WorkspaceRootPath": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar\\source\\repos\\oelshaf3y\\rscc\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\pipesongrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:pipesongrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\notonsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:notonsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\saveviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:saveviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\resetsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:resetsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|RSCC_GEN||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar\\source\\repos\\oelshaf3y\\rscc\\resetsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:resetsheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\resetviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:resetviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar\\source\\repos\\oelshaf3y\\rscc\\hideunhostedbars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:hideunhostedbars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar\\source\\repos\\oelshaf3y\\rscc\\saveviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:saveviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\rscc.addin||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:rscc.addin||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\rebarset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:rebarset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:insulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\hideunhostedbars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:hideunhostedbars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\deletegroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:deletegroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\resetviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:resetviewstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar\\source\\repos\\oelshaf3y\\rscc\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,8 +45,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Insulation.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Insulation.cs",
+              "RelativeDocumentMoniker": "Insulation.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Insulation.cs",
+              "RelativeToolTip": "Insulation.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAIwEQAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T13:46:14.5Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PipesOnGrade.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\PipesOnGrade.cs",
+              "RelativeDocumentMoniker": "PipesOnGrade.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\PipesOnGrade.cs*",
+              "RelativeToolTip": "PipesOnGrade.cs*",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAAEEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T12:34:21.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotOnSheet.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\NotOnSheet.cs",
+              "RelativeDocumentMoniker": "NotOnSheet.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\NotOnSheet.cs",
+              "RelativeToolTip": "NotOnSheet.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAApwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T08:21:15.243Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -77,153 +100,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RSCC_GEN",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj",
-              "RelativeDocumentMoniker": "RSCC_GEN.csproj",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj",
-              "RelativeToolTip": "RSCC_GEN.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-03-03T08:26:58.153Z",
+              "DocumentIndex": 2,
+              "Title": "SaveViewState.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\SaveViewState.cs",
+              "RelativeDocumentMoniker": "SaveViewState.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\SaveViewState.cs",
+              "RelativeToolTip": "SaveViewState.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAIwCgAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T09:56:52.192Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DeleteGroups.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\DeleteGroups.cs",
-              "RelativeDocumentMoniker": "DeleteGroups.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\DeleteGroups.cs",
-              "RelativeToolTip": "DeleteGroups.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAoAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T11:26:42.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "test.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\test.cs",
-              "RelativeDocumentMoniker": "test.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\test.cs",
-              "RelativeToolTip": "test.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAIwCIAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T11:35:30.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Insulation.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\Insulation.cs",
-              "RelativeDocumentMoniker": "Insulation.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\Insulation.cs",
-              "RelativeToolTip": "Insulation.cs",
-              "ViewState": "AQIAACkBAAAAAAAAAAAIwEIBAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T09:48:35.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RebarSet.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RebarSet.cs",
-              "RelativeDocumentMoniker": "RebarSet.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RebarSet.cs",
-              "RelativeToolTip": "RebarSet.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:57:02.067Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ResetViewState.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\ResetViewState.cs",
-              "RelativeDocumentMoniker": "ResetViewState.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\ResetViewState.cs",
-              "RelativeToolTip": "ResetViewState.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwBkAAAAMAAAA",
+              "Title": "ResetSheet.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\ResetSheet.cs",
+              "RelativeDocumentMoniker": "ResetSheet.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\ResetSheet.cs",
+              "RelativeToolTip": "ResetSheet.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAowDoAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:57:02.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "App.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\App.cs",
-              "RelativeDocumentMoniker": "App.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\App.cs*",
-              "RelativeToolTip": "App.cs*",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwDQAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:57:21.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Ninja.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
-              "RelativeDocumentMoniker": "Ninja.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
-              "RelativeToolTip": "Ninja.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:00:24.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RSCC.addin",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RSCC.addin",
-              "RelativeDocumentMoniker": "RSCC.addin",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\RSCC.addin",
-              "RelativeToolTip": "RSCC.addin",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000072|",
-              "WhenOpened": "2024-05-28T18:44:36.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SaveViewState.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\SaveViewState.cs",
-              "RelativeDocumentMoniker": "SaveViewState.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\SaveViewState.cs",
-              "RelativeToolTip": "SaveViewState.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCIAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T20:13:20.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T10:01:53.627Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HideUnHostedBars.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\HideUnHostedBars.cs",
-              "RelativeDocumentMoniker": "HideUnHostedBars.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\HideUnHostedBars.cs",
-              "RelativeToolTip": "HideUnHostedBars.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T20:38:12.74Z",
-              "EditorCaption": ""
+              "Title": "RSCC_GEN",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj",
+              "RelativeDocumentMoniker": "RSCC_GEN.csproj",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj",
+              "RelativeToolTip": "RSCC_GEN.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-09T10:00:49.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ResetSheet.cs",
-              "DocumentMoniker": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\ResetSheet.cs",
-              "RelativeDocumentMoniker": "ResetSheet.cs",
-              "ToolTip": "C:\\Users\\Omar\\source\\repos\\oelshaf3y\\RSCC\\ResetSheet.cs",
-              "RelativeToolTip": "ResetSheet.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAApwEIAAAAtAAAA",
+              "DocumentIndex": 6,
+              "Title": "HideUnHostedBars.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\HideUnHostedBars.cs",
+              "RelativeDocumentMoniker": "HideUnHostedBars.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\HideUnHostedBars.cs",
+              "RelativeToolTip": "HideUnHostedBars.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T20:41:42.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-09T09:43:17.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Ninja.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
+              "RelativeDocumentMoniker": "Ninja.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
+              "RelativeToolTip": "Ninja.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T10:00:14.728Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResetViewState.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\ResetViewState.cs",
+              "RelativeDocumentMoniker": "ResetViewState.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\ResetViewState.cs",
+              "RelativeToolTip": "ResetViewState.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAADwvzEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T09:36:11.349Z"
             }
           ]
         }
