@@ -67,7 +67,6 @@ namespace RSCC_GEN
             using (Transaction tr = new Transaction(doc, "Create pipe"))
             {
                 tr.Start();
-                if (pipe != null) doc.Delete(pipe.Id);
                 pipe = Pipe.Create(doc, systemId, pipeTypeId, levelId, XYZ.Zero, XYZ.Zero.Add(3 * XYZ.BasisX));
                 segment = pipe.PipeSegment;
                 pipe.LookupParameter("Diameter").Set(diameters[0]);
