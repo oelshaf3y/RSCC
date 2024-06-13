@@ -1,0 +1,14 @@
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\bin\x64\X64\RSCC_GEN.dll
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.AssemblyReference.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.Consolidate.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.ExcelExport.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.locationForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.POGform.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.PrintAndExportForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.Properties.Resources.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.QTYForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.WPCForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.WSForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.GenerateResource.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.CoreCompileInputs.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.dll

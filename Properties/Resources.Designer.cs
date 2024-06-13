@@ -83,9 +83,9 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon restore {
+        internal static System.Drawing.Icon hideUnhostedS {
             get {
-                object obj = ResourceManager.GetObject("restore", resourceCulture);
+                object obj = ResourceManager.GetObject("hideUnhostedS", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon rft {
+        internal static System.Drawing.Icon NOS {
             get {
-                object obj = ResourceManager.GetObject("rft", resourceCulture);
+                object obj = ResourceManager.GetObject("NOS", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -103,9 +103,39 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon sheets {
+        internal static System.Drawing.Icon resetSheets {
             get {
-                object obj = ResourceManager.GetObject("sheets", resourceCulture);
+                object obj = ResourceManager.GetObject("resetSheets", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon ResetSheetsS {
+            get {
+                object obj = ResourceManager.GetObject("ResetSheetsS", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon ResetView {
+            get {
+                object obj = ResourceManager.GetObject("ResetView", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon resetViewS {
+            get {
+                object obj = ResourceManager.GetObject("resetViewS", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

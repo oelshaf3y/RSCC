@@ -14,10 +14,14 @@ namespace RSCC_GEN
 {
     public static class Ninja
     {
-        public static void print(this Document doc, object mes)
-        {
-            MessageBox.Show(mes.ToString());
-        }
+        public static double meterToFeet(this double distance) => distance / 0.3048;
+        public static double mmToFeet(this double Distance) => Distance / 304.8;
+        public static double feetToMeter(this double Distance) => Distance * 0.3048;
+        public static double feetToMM(this double Distance) => Distance * 304.8;
+        public static double toDegree(this double angle) => angle * 180 / Math.PI;
+        public static double toRad(this double angle) => angle * Math.PI / 180;
+
+        public static void print(this Document doc, object mes) => MessageBox.Show(mes.ToString());
 
         public static TaskDialogResult YesNoMessage(this Document doc, object mes)
         {
@@ -28,7 +32,6 @@ namespace RSCC_GEN
             };
             return dialog.Show();
         }
-
         public static Solid getSolid(this Document doc, Element elem)
         {
             Options options = new Options();
