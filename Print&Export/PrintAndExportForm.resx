@@ -117,41 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\capture.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="captures" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\captures.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hideUnhosted" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hideUnhosted.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hideUnhostedS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hideUnhostedS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NOS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NOSsmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NOSsmall.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pdfLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pdfLarge.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pdfSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pdfSmall.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="resetSheets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\resetSheets.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ResetSheetsS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ResetSheetsS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ResetView" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ResetView.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="resetViewS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\resetViewS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

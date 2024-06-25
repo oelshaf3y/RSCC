@@ -20,10 +20,29 @@ namespace RSCC_GEN
             doc = uidoc.Document;
             sb = new StringBuilder();
             View activeView = doc.ActiveView;
-            if (doc.GetElement(((ViewSheet)activeView).GetAllViewports().First()).LookupParameter("View State") == null)
+            List<ViewSheet> sheets = new FilteredElementCollector(doc)
+                   .OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType()
+                   .Where(x => x is ViewSheet).Cast<ViewSheet>().ToList();
+            if (sheets.Count == 0)
             {
-                doc.print("No saved states to be restored");
+                doc.print("No sheets found to be restored");
                 return Result.Failed;
+            }
+            if (activeView is ViewPlan || activeView is ViewSection)
+            {
+                if (activeView.LookupParameter("View State") == null)
+                {
+                    doc.print("No saved states to be restored");
+                    return Result.Failed;
+                }
+            }
+            else if ((activeView is ViewSheet))
+            {
+                if (doc.GetElement(((ViewSheet)activeView).GetAllViewports().First()).LookupParameter("View State") == null)
+                {
+                    doc.print("No saved states to be restored");
+                    return Result.Failed;
+                }
             }
             if (doc.YesNoMessage("Do you want to reset all sheets?") == TaskDialogResult.No)
             {
@@ -49,10 +68,8 @@ namespace RSCC_GEN
             }
             else
             {
-                List<ViewSheet> sheets = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType()
-                    .Where(x => x is ViewSheet).Cast<ViewSheet>().ToList();
-                //doc.print(sheets.Count);
+               
+                
                 using (TransactionGroup tg = new TransactionGroup(doc, "Fix All Sheets"))
                 {
                     tg.Start();

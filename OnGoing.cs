@@ -19,16 +19,42 @@ namespace RSCC_GEN
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
 
-            FilteredElementCollector coll = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms);
-            int count = coll.Count();
-            using (Transaction tr = new Transaction(doc, "delete rooms"))
-            {
-                tr.Start();
-                doc.Delete(coll.Select(x => x.Id).ToList());
+            #region delete rooms
+            //FilteredElementCollector coll = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms);
+            //int count = coll.Count();
+            //using (Transaction tr = new Transaction(doc, "delete rooms"))
+            //{
+            //    tr.Start();
+            //    doc.Delete(coll.Select(x => x.Id).ToList());
 
-                tr.Commit();
-            }
-            doc.print("total of " + count + " Rooms Deleted");
+            //    tr.Commit();
+            //}
+            //doc.print("total of " + count + " Rooms Deleted");
+            #endregion
+
+            #region delete hvac zones
+            //FilteredElementCollector hvac = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_HVAC_Zones);
+            //using (Transaction tr = new Transaction(doc, "Mena beysaba7"))
+            //{
+            //    tr.Start();
+            //    foreach (var t in hvac.ToElements())
+            //    {
+            //        try
+            //        {
+
+            //            if (t != null)
+            //                doc.Delete(t.Id);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            doc.print(ex.StackTrace);
+            //        }
+            //    }
+            //    tr.Commit();
+            //    tr.Dispose();
+            //}
+            #endregion
+
             return Result.Succeeded;
         }
     }

@@ -24,7 +24,7 @@ namespace RSCC_GEN
                 return Result.Failed;
             }
             Parameter state = activeView.LookupParameter("View State");
-            if (state == null)
+            if (state == null || state.AsString() == null)
             {
                 doc.print("view state is not stored or parameter doesn't exist!");
                 return Result.Failed;

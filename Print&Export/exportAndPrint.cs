@@ -22,6 +22,7 @@ namespace RSCC_GEN
         ViewScheduleExportOptions viewScheduleExportOptions;
         ExcelExport excelExporter;
         public DWGExportOptions currentSettings;
+        PDFExportOptions pdfOptions;
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -43,7 +44,6 @@ namespace RSCC_GEN
                     excelExporter.ShowDialog();
 
                 }
-                printManager.Apply();
                 using (Transaction tr = new Transaction(doc, "Print and Export"))
                 {
                     tr.Start();
@@ -74,20 +74,11 @@ namespace RSCC_GEN
                     {
                         try
                         {
-
-                            printManager.SelectNewPrintDriver(form.comboBox1.SelectedItem.ToString());
-                            printManager.PrintRange = PrintRange.Select;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.PaperSize = printManager.PaperSizes.Cast<PaperSize>().Where(x => x.Name == form.comboBox2.SelectedItem.ToString()).First();
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HiddenLineViews = HiddenLineViewsType.VectorProcessing;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.RasterQuality = RasterQualityType.Presentation;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideScopeBoxes = true;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideUnreferencedViewTags = true;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideCropBoundaries = true;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.HideReforWorkPlanes = true;
-                            printManager.PrintSetup.CurrentPrintSetting.PrintParameters.ColorDepth = ColorDepthType.Color;
-                            printManager.PrintToFile = true;
-                            printManager.CombinedFile = true;
-                            doc.PrintManager.PrintSetup.CurrentPrintSetting = form.printManager.PrintSetup.CurrentPrintSetting;
+                            pdfOptions = new PDFExportOptions();
+                            pdfOptions.ColorDepth = ColorDepthType.Color;
+                            pdfOptions.ExportQuality = PDFExportQualityType.DPI1200;
+                            pdfOptions.PaperFormat = ExportPaperFormat.Default;
+                            pdfOptions.StopOnError = true;
                         }
                         catch (Exception ex)
                         {
@@ -101,10 +92,15 @@ namespace RSCC_GEN
                         if (sheet == null) continue;
                         viewSet.Insert(sheet);
                         string name = form.getFileName(sheet);
-                        printManager.PrintToFileName = Path.Combine(form.PDFLocation, name + ".pdf");
-                        printManager.Apply();
-                        if (form.pdfex.Checked) doc.Print(viewSet, true);
-                        if (form.cadex.Checked) doc.Export(form.DWGLocation, name + ".dwg", new List<ElementId> { sheet.Id }, form.currentSettings);
+
+                        if (form.pdfex.Checked)
+                        {
+                            pdfOptions.FileName = name;
+                            doc.Export(form.PDFLocation, new List<ElementId> { sheet.Id }, pdfOptions);
+                            //doc.Print(viewSet, true);
+                            //doc.Export()
+                        }
+                        if (form.cadex.Checked) doc.Export(form.DWGLocation, name + ".dwg", new List<ElementId> { sheet.Id }, form.currentDWGSettings);
                     }
                     tr.Commit();
                     tr.Dispose();

@@ -72,14 +72,21 @@
     <Compile Include="DeleteCad.cs" />
     <Compile Include="DeleteGroups.cs" />
     <Compile Include="DGVData.cs" />
-    <Compile Include="ExcelExport.cs">
+    <Compile Include="Print&amp;Export\ExcelExport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExcelExport.Designer.cs">
+    <Compile Include="Print&amp;Export\ExcelExport.Designer.cs">
       <DependentUpon>ExcelExport.cs</DependentUpon>
     </Compile>
-    <Compile Include="exportAndPrint.cs" />
-    <Compile Include="HideUnHostedBars.cs" />
+    <Compile Include="Print&amp;Export\exportAndPrint.cs" />
+    <Compile Include="FindRFT.cs" />
+    <Compile Include="FindRFTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindRFTForm.Designer.cs">
+      <DependentUpon>FindRFTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View State\HideUnHostedBars.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
     <Compile Include="GridsWS.cs" />
     <Compile Include="PipesOnGrade.cs" />
@@ -89,7 +96,7 @@
     <Compile Include="POGform.Designer.cs">
       <DependentUpon>POGform.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResetSheet.cs" />
+    <Compile Include="View State\ResetSheet.cs" />
     <Compile Include="Insulation.cs" />
     <Compile Include="Jubail.cs" />
     <Compile Include="locationForm.cs">
@@ -100,12 +107,12 @@
     </Compile>
     <Compile Include="LocationIssue.cs" />
     <Compile Include="Ninja.cs" />
-    <Compile Include="NotOnSheet.cs" />
+    <Compile Include="View State\NotOnSheet.cs" />
     <Compile Include="OnGoing.cs" />
-    <Compile Include="PrintAndExportForm.cs">
+    <Compile Include="Print&amp;Export\PrintAndExportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintAndExportForm.Designer.cs">
+    <Compile Include="Print&amp;Export\PrintAndExportForm.Designer.cs">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -129,9 +136,9 @@
     <Compile Include="Consolidate.Designer.cs">
       <DependentUpon>Consolidate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResetViewState.cs" />
+    <Compile Include="View State\ResetViewState.cs" />
     <Compile Include="RSCCSelectionFilter.cs" />
-    <Compile Include="SaveViewState.cs" />
+    <Compile Include="View State\SaveViewState.cs" />
     <Compile Include="test.cs" />
     <Compile Include="WPCCopy.cs" />
     <Compile Include="WPCForm.cs">
@@ -151,8 +158,11 @@
     <EmbeddedResource Include="Consolidate.resx">
       <DependentUpon>Consolidate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExcelExport.resx">
+    <EmbeddedResource Include="Print&amp;Export\ExcelExport.resx">
       <DependentUpon>ExcelExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindRFTForm.resx">
+      <DependentUpon>FindRFTForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="locationForm.resx">
       <DependentUpon>locationForm.cs</DependentUpon>
@@ -160,7 +170,7 @@
     <EmbeddedResource Include="POGform.resx">
       <DependentUpon>POGform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintAndExportForm.resx">
+    <EmbeddedResource Include="Print&amp;Export\PrintAndExportForm.resx">
       <DependentUpon>PrintAndExportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -216,6 +226,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resetSheets.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdfSmall.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdfLarge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOSsmall.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\captures.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -12,3 +12,4 @@ C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.WSForm.r
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.GenerateResource.cache
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.CoreCompileInputs.cache
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.dll
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.FindRFTForm.resources

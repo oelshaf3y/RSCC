@@ -16,14 +16,14 @@ namespace RSCC_GEN
         public List<ViewSheet> sheets;
         public List<ViewSheetSet> sheetSets;
         public ViewSheetSetting viewSheetSetting;
-        List<ExportDWGSettings> exportSettings;
-        public DWGExportOptions currentSettings;
+        List<ExportDWGSettings> DWGExportSettings;
+        public DWGExportOptions currentDWGSettings;
         UIDocument uidoc;
         Document doc;
         public string savelocation, PDFLocation, DWGLocation, XLSLocation;
         public PrintAndExportForm(ExternalCommandData commandData)
         {
-            currentSettings = null;
+            currentDWGSettings = null;
             savelocation = "";
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
@@ -33,28 +33,21 @@ namespace RSCC_GEN
             printManager.PrintRange = PrintRange.Select;
             printers = System.Drawing.Printing.PrinterSettings.InstalledPrinters.Cast<string>().ToList(); ;
             viewSheetSetting = printManager.ViewSheetSetting;
-            exportSettings = new FilteredElementCollector(doc).OfClass(typeof(ExportDWGSettings)).Cast<ExportDWGSettings>().ToList();
+            DWGExportSettings = new FilteredElementCollector(doc).OfClass(typeof(ExportDWGSettings)).Cast<ExportDWGSettings>().ToList();
             InitializeComponent();
 
         }
 
         private void PrintAndExportForm_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.AddRange(printers.ToArray());
-            comboBox3.Items.AddRange(exportSettings.Select(x => x.Name).ToArray());
-            if (exportSettings.Count() > 0) comboBox3.SelectedIndex = 0;
+            comboBox3.Items.AddRange(DWGExportSettings.Select(x => x.Name).ToArray());
+            if (DWGExportSettings.Count() > 0) comboBox3.SelectedIndex = 0;
             comboBox5.Items.AddRange(sheetSets.Select(x => x.Name).ToArray());
             comboBox5.Items.Add("All sheets in the Model");
             comboBox5.SelectedIndex = comboBox5.Items.Count - 1;
             exampleLabel.Text = sheets.First().SheetNumber + " - " + sheets.First().Name.ToString();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox2.Items.Clear();
-            printManager.SelectNewPrintDriver(printers.ElementAt(comboBox1.SelectedIndex));
-            comboBox2.Items.AddRange(printManager.PaperSizes.Cast<PaperSize>().OrderBy(x => x.Name).Select(x => x.Name).ToArray());
-        }
         private void checkExampleLabel(object sender, EventArgs e)
         {
             if (!includeSheetName.Checked & !includeSheetNo.Checked)
@@ -111,21 +104,21 @@ namespace RSCC_GEN
             }
             if (cadex.Checked && comboBox3.SelectedIndex == -1)
             {
-                currentSettings = new DWGExportOptions();
-                currentSettings.MergedViews = merge.Checked;
+                currentDWGSettings = new DWGExportOptions();
+                currentDWGSettings.MergedViews = merge.Checked;
             }
             PDFLocation = Path.Combine(savelocation, "PDF");
             DWGLocation = Path.Combine(savelocation, "CAD");
             XLSLocation = Path.Combine(savelocation, "Excel");
-            if (!Directory.Exists(Path.Combine(savelocation, "PDF")))
+            if (!Directory.Exists(PDFLocation) && pdfex.Checked)
             {
                 Directory.CreateDirectory(PDFLocation);
             }
-            if (!Directory.Exists(DWGLocation))
+            if (!Directory.Exists(DWGLocation) && cadex.Checked)
             {
                 Directory.CreateDirectory(DWGLocation);
             }
-            if (!Directory.Exists(XLSLocation))
+            if (!Directory.Exists(XLSLocation) && xlsxEx.Checked)
             {
                 Directory.CreateDirectory(XLSLocation);
             }
@@ -159,13 +152,13 @@ namespace RSCC_GEN
 
         private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            currentSettings = exportSettings.ElementAt(comboBox3.SelectedIndex).GetDWGExportOptions();
-            currentSettings.MergedViews = merge.Checked;
+            currentDWGSettings = DWGExportSettings.ElementAt(comboBox3.SelectedIndex).GetDWGExportOptions();
+            currentDWGSettings.MergedViews = merge.Checked;
         }
 
         private void merge_CheckedChanged(object sender, EventArgs e)
         {
-            currentSettings.MergedViews = merge.Checked;
+            currentDWGSettings.MergedViews = merge.Checked;
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -73,6 +73,16 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon captures {
+            get {
+                object obj = ResourceManager.GetObject("captures", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon hideUnhosted {
             get {
                 object obj = ResourceManager.GetObject("hideUnhosted", resourceCulture);
@@ -96,6 +106,36 @@ namespace RSCC_GEN.Properties {
         internal static System.Drawing.Icon NOS {
             get {
                 object obj = ResourceManager.GetObject("NOS", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon NOSsmall {
+            get {
+                object obj = ResourceManager.GetObject("NOSsmall", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon pdfLarge {
+            get {
+                object obj = ResourceManager.GetObject("pdfLarge", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon pdfSmall {
+            get {
+                object obj = ResourceManager.GetObject("pdfSmall", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
