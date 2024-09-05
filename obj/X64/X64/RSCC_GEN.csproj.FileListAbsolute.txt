@@ -13,3 +13,5 @@ C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.G
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.CoreCompileInputs.cache
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.dll
 C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.FindRFTForm.resources
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.csproj.ResolveComReference.cache
+C:\Users\Omar.Elshafey\source\repos\oelshaf3y\RSCC\obj\x64\X64\RSCC_GEN.Select_By.SelectByForm.resources

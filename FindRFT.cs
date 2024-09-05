@@ -13,8 +13,8 @@ namespace RSCC_GEN
     [TransactionAttribute(TransactionMode.Manual)]
     internal class FindRFT : IExternalCommand
     {
-        UIDocument uidoc;
-        Document doc;
+        public UIDocument uidoc { get; set; }
+        public Document doc { get; set; }
         Rebar rebar;
         List<Rebar> rebarSets;
         List<Rebar> found;
@@ -46,13 +46,6 @@ namespace RSCC_GEN
                 || x.ViewType == ViewType.DraftingView || x.ViewType == ViewType.Elevation || x.ViewType == ViewType.Section || x.ViewType == ViewType.ThreeD).ToList();
             sheets = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType()
                 .ToElements().Where(x => x is ViewSheet).Cast<ViewSheet>().ToList();
-            //foreach (Rebar bar in rebarSets)
-            //{
-            //    if (bar.LookupParameter("Rebar Number").AsString() == form.textBox1.Text.Trim())
-            //    {
-            //        found.Add(bar);
-            //    }
-            //}
             found = rebarSets.Where(x => x.LookupParameter("Rebar Number").AsString() == form.textBox1.Text.Trim()
             && x.LookupParameter("Partition").AsString() == partitions[form.comboBox1.SelectedIndex])?.ToList();
             Rebar bar;
@@ -65,7 +58,6 @@ namespace RSCC_GEN
             foreach (ViewSheet sheet in sheets)
             {
                 List<ElementId> viewsOnSheet = sheet.GetAllViewports().ToList();
-                //doc.print(viewsOnSheet.Count);
                 foreach (ElementId id in viewsOnSheet)
                 {
                     Viewport vp = doc.GetElement(id) as Viewport;

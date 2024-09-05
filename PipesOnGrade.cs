@@ -23,6 +23,7 @@ namespace RSCC_GEN
         StringBuilder sb;
         double distAcc, angleAcc, offset;
         MEPSize pipeSize;
+        bool isLinked;
         //FilteredElementCollector
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -85,6 +86,7 @@ namespace RSCC_GEN
             }
             using (Transaction tr = new Transaction(doc, "create pipe"))
             {
+
                 tr.Start();
                 int b = 0;
                 int a = 0;
@@ -158,7 +160,16 @@ namespace RSCC_GEN
         List<XYZ> getProjectionPoints(Element toposolid, Curve curve = null, List<XYZ> points = null)
         {
             List<XYZ> intersectionPts = new List<XYZ>();
-            Solid solid = doc.getSolid(toposolid);
+            Solid solid;
+            if (linkedDoc != null)
+            {
+                solid = linkedDoc.getSolid(toposolid);
+            }
+            else
+            {
+                solid = doc.getSolid(toposolid);
+            }
+
             if (curve == null)
             {
                 foreach (XYZ temp in points)

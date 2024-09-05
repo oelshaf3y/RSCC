@@ -46,6 +46,7 @@
     <OutputPath>bin\x64\X64\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
@@ -58,7 +59,11 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,9 +74,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Clash Balls\ClashBalls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clash Balls\ClashBalls.Designer.cs">
+      <DependentUpon>ClashBalls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clash Balls\ClashDetective.cs" />
+    <Compile Include="Clash Balls\ClashesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clash Balls\ClashesUI.Designer.cs">
+      <DependentUpon>ClashesUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clash Balls\ClashPoint.cs" />
+    <Compile Include="Clash Balls\ClashViewerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clash Balls\ClashViewerUI.Designer.cs">
+      <DependentUpon>ClashViewerUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clash Balls\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clash Balls\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteCad.cs" />
     <Compile Include="DeleteGroups.cs" />
     <Compile Include="DGVData.cs" />
+    <Compile Include="GetCoordinates.cs" />
+    <Compile Include="ParamFromExcel.cs" />
+    <Compile Include="PilesToSeaBed.cs" />
     <Compile Include="Print&amp;Export\ExcelExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +119,13 @@
     </Compile>
     <Compile Include="FindRFTForm.Designer.cs">
       <DependentUpon>FindRFTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select By\SelectBy.cs" />
+    <Compile Include="Select By\SelectByForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select By\SelectByForm.Designer.cs">
+      <DependentUpon>SelectByForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View State\HideUnHostedBars.cs" />
     <Compile Include="FloorSelectionFilter.cs" />
@@ -180,6 +221,9 @@
     <EmbeddedResource Include="QTYForm.resx">
       <DependentUpon>QTYForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Select By\SelectByForm.resx">
+      <DependentUpon>SelectByForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WPCForm.resx">
       <DependentUpon>WPCForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +282,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\captures.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

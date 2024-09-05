@@ -20,6 +20,7 @@ namespace RSCC_GEN
         public static double feetToMM(this double Distance) => Distance * 304.8;
         public static double toDegree(this double angle) => angle * 180 / Math.PI;
         public static double toRad(this double angle) => angle * Math.PI / 180;
+        //public static string ToString(this XYZ point) => $"{point.X},{point.Y},{point.Z}";
 
         public static void print(this Document doc, object mes) => MessageBox.Show(mes.ToString());
 
@@ -155,5 +156,6 @@ namespace RSCC_GEN
 
             return imageSource;
         }
+
     }
 }
