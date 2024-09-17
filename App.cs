@@ -62,11 +62,29 @@ namespace RSCC_GEN
                 LargeImage = Properties.Resources.pdfLarge.ToImageSource(),
                 ToolTip = "Print or export multiple sheets, views or schedules at once."
             };
+            PushButtonData SelectBy = new PushButtonData("Select by", "Parameter Selection", assemblyName, "RSCC_GEN.Select_By.SelectBy")
+            {
+                Image = Properties.Resources.selectbys.ToImageSource(),
+                LargeImage = Properties.Resources.selectbyl.ToImageSource(),
+                ToolTip = "Select All Elements By A Parameter Value"
+            };
+            PushButtonData ToggleReb = new PushButtonData("Toggle Rebar", "Rebar On/Off", assemblyName, "RSCC_GEN.RebarOnOf.ToggleRebar")
+            {
+                Image = Properties.Resources.Rebs.ToImageSource(),
+                LargeImage = Properties.Resources.Rebl.ToImageSource(),
+                ToolTip = "Hide or unhide rebar category"
+            };
             try
             {
                 panel.AddItem(BatchPrint);
-                panel.AddStackedItems(NOS,HideUnhosted);
+                panel.AddItem(SelectBy);
+                panel.AddSeparator();
+                panel.AddStackedItems(NOS,HideUnhosted,ToggleReb);
+                panel.AddSeparator();
                 panel.AddStackedItems(SaveState, restoreState, ResetSheets);
+                panel.AddSeparator();
+
+
                 //panel.AddItem(SaveState);
                 //panel.AddItem(restoreState);
                 //panel.AddItem(ResetSheets);

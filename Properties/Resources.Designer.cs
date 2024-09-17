@@ -143,6 +143,26 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon Rebl {
+            get {
+                object obj = ResourceManager.GetObject("Rebl", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Rebs {
+            get {
+                object obj = ResourceManager.GetObject("Rebs", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon resetSheets {
             get {
                 object obj = ResourceManager.GetObject("resetSheets", resourceCulture);
@@ -176,6 +196,26 @@ namespace RSCC_GEN.Properties {
         internal static System.Drawing.Icon resetViewS {
             get {
                 object obj = ResourceManager.GetObject("resetViewS", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon selectbyl {
+            get {
+                object obj = ResourceManager.GetObject("selectbyl", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon selectbys {
+            get {
+                object obj = ResourceManager.GetObject("selectbys", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

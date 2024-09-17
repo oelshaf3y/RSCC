@@ -24,7 +24,7 @@ namespace RSCC_GEN
         public PrintAndExportForm(ExternalCommandData commandData)
         {
             currentDWGSettings = null;
-            savelocation = "";
+            savelocation = getLastSaveLocation();
             uidoc = commandData.Application.ActiveUIDocument;
             doc = uidoc.Document;
             sheetSets = new FilteredElementCollector(doc).OfClass(typeof(ViewSheetSet)).Cast<ViewSheetSet>().ToList();
@@ -35,7 +35,18 @@ namespace RSCC_GEN
             viewSheetSetting = printManager.ViewSheetSetting;
             DWGExportSettings = new FilteredElementCollector(doc).OfClass(typeof(ExportDWGSettings)).Cast<ExportDWGSettings>().ToList();
             InitializeComponent();
+            location.Text= savelocation;
+        }
 
+        private string getLastSaveLocation()
+        {
+            string userDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string tempFilePath = Path.Combine(userDir, "NinjaPrint.txt");
+            if (File.Exists(tempFilePath))
+            {
+                return File.ReadAllText(tempFilePath);
+            }
+            return "";
         }
 
         private void PrintAndExportForm_Load(object sender, EventArgs e)
@@ -84,6 +95,7 @@ namespace RSCC_GEN
         private void button2_Click(object sender, EventArgs e)
         {
             savelocation = location.Text;
+            setSaveLocation(savelocation);
             if (!Directory.Exists(savelocation))
             {
                 MessageBox.Show("Please Select a valid location.");
@@ -126,6 +138,19 @@ namespace RSCC_GEN
             DialogResult = DialogResult.OK;
         }
 
+        private void setSaveLocation(string savelocation)
+        {
+            string saveFileLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "NinjaPrint.txt");
+                File.WriteAllText(saveFileLocation, savelocation);
+            //if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "NinjaPrint.txt")))
+            //{
+            //}
+            //else
+            //{
+
+            //}
+        }
+
         public string getFileName(ViewSheet sheet)
         {
             StringBuilder name = new StringBuilder();
@@ -140,6 +165,7 @@ namespace RSCC_GEN
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.SelectedPath = savelocation;
             folderBrowser.ShowDialog();
             location.Text = folderBrowser.SelectedPath;
         }

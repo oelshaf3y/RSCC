@@ -92,15 +92,19 @@ namespace RSCC_GEN
                         if (sheet == null) continue;
                         viewSet.Insert(sheet);
                         string name = form.getFileName(sheet);
-
-                        if (form.pdfex.Checked)
+                        try
                         {
-                            pdfOptions.FileName = name;
-                            doc.Export(form.PDFLocation, new List<ElementId> { sheet.Id }, pdfOptions);
-                            //doc.Print(viewSet, true);
-                            //doc.Export()
+
+                            if (form.pdfex.Checked)
+                            {
+                                pdfOptions.FileName = name;
+                                doc.Export(form.PDFLocation, new List<ElementId> { sheet.Id }, pdfOptions);
+                                //doc.Print(viewSet, true);
+                                //doc.Export()
+                            }
+                            if (form.cadex.Checked) doc.Export(form.DWGLocation, name + ".dwg", new List<ElementId> { sheet.Id }, form.currentDWGSettings);
                         }
-                        if (form.cadex.Checked) doc.Export(form.DWGLocation, name + ".dwg", new List<ElementId> { sheet.Id }, form.currentDWGSettings);
+                        catch { doc.print("File is opened. Please close the file and try again."); }
                     }
                     tr.Commit();
                     tr.Dispose();

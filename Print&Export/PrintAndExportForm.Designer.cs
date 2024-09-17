@@ -327,8 +327,6 @@
             // xlsxEx
             // 
             this.xlsxEx.AutoSize = true;
-            this.xlsxEx.Checked = true;
-            this.xlsxEx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xlsxEx.Location = new System.Drawing.Point(272, 369);
             this.xlsxEx.Name = "xlsxEx";
             this.xlsxEx.Size = new System.Drawing.Size(62, 20);

@@ -120,11 +120,12 @@
     <Compile Include="FindRFTForm.Designer.cs">
       <DependentUpon>FindRFTForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Select By\SelectBy.cs" />
-    <Compile Include="Select By\SelectByForm.cs">
+    <Compile Include="RebarOnOf\ToggleRebar.cs" />
+    <Compile Include="SelectBy\SelectBy.cs" />
+    <Compile Include="SelectBy\SelectByForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Select By\SelectByForm.Designer.cs">
+    <Compile Include="SelectBy\SelectByForm.Designer.cs">
       <DependentUpon>SelectByForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View State\HideUnHostedBars.cs" />
@@ -221,7 +222,7 @@
     <EmbeddedResource Include="QTYForm.resx">
       <DependentUpon>QTYForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Select By\SelectByForm.resx">
+    <EmbeddedResource Include="SelectBy\SelectByForm.resx">
       <DependentUpon>SelectByForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WPCForm.resx">
@@ -311,6 +312,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rebl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rebs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectbys.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectbyl.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

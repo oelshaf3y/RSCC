@@ -17,6 +17,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
+using Autodesk.Revit.DB.Structure;
 
 namespace RSCC_GEN
 {
@@ -136,22 +137,46 @@ namespace RSCC_GEN
 
             #region ungroup
 
-            FilteredElementCollector FEC = new FilteredElementCollector(doc).WhereElementIsNotElementType();
-            using (Transaction tr = new Transaction(doc, "UnGroup Elements"))
-            {
-                tr.Start();
+            //FilteredElementCollector FEC = new FilteredElementCollector(doc).WhereElementIsNotElementType();
+            //using (Transaction tr = new Transaction(doc, "UnGroup Elements"))
+            //{
+            //    tr.Start();
 
-                foreach (Element elem in FEC)
+            //    foreach (Element elem in FEC)
+            //    {
+            //        if (elem is Group)
+            //        {
+            //            Group group = (Group)elem;
+            //            group.UngroupMembers();
+            //        }
+            //    }
+            //    tr.Commit();
+            //    tr.Dispose();
+            //}
+
+            #endregion
+
+            #region RFT Weight
+            double vol = 0;
+            List<Element> selection = uidoc.Selection.GetElementIds().Select(x=>doc.GetElement(x)).ToList();
+            if (selection.Count > 0)
+            {
+                selection = selection.Where(x=>x is Rebar).ToList();
+
+                foreach (Element element in selection)
                 {
-                    if (elem is Group)
-                    {
-                        Group group = (Group)elem;
-                        group.UngroupMembers();
-                    }
+                    Rebar rebar = element as Rebar;
+                    vol += rebar.Volume;
                 }
-                tr.Commit();
-                tr.Dispose();
+
             }
+            Element Host = doc.GetElement(((Rebar)selection.First()).GetHostId());
+            uidoc.Selection.SetElementIds(new List<ElementId> { Host.Id });
+            Solid s = doc.getSolid(Host);
+            double rebWeight = vol * 0.0283168 * 7850;
+            double hostVolume = s.Volume * 0.0283168;
+            doc.print("W= "+rebWeight+"\nHost Volume ="+hostVolume+"\nW/m3="+rebWeight/hostVolume);
+
 
             #endregion
 

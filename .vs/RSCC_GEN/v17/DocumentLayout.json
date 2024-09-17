@@ -3,20 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\getcoordinates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:getcoordinates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:ninja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\rebaronof\\togglerebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:rebaronof\\togglerebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\selectby\\selectby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:selectby\\selectby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|RSCC_GEN||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\print\u0026export\\printandexportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:print\u0026export\\printandexportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\print\u0026export\\printandexportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:print\u0026export\\printandexportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\print\u0026export\\exportandprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:print\u0026export\\exportandprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\ongoing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:ongoing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\print\u0026export\\exportandprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:print\u0026export\\exportandprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|c:\\users\\omar.elshafey\\source\\repos\\oelshaf3y\\rscc\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A5E199C6-F4BD-4399-9A54-15F9A2628C55}|RSCC_GEN.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,54 +65,104 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Ninja.cs",
-              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
-              "RelativeDocumentMoniker": "Ninja.cs",
-              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Ninja.cs",
-              "RelativeToolTip": "Ninja.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAwwBMAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T07:31:52.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "exportAndPrint.cs",
-              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\exportAndPrint.cs",
-              "RelativeDocumentMoniker": "Print\u0026Export\\exportAndPrint.cs",
-              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\exportAndPrint.cs",
-              "RelativeToolTip": "Print\u0026Export\\exportAndPrint.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAwB8AAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T07:14:51.11Z",
+              "Title": "RSCC_GEN",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj",
+              "RelativeDocumentMoniker": "RSCC_GEN.csproj",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RSCC_GEN.csproj*",
+              "RelativeToolTip": "RSCC_GEN.csproj*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-17T11:10:47.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetCoordinates.cs",
-              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\GetCoordinates.cs",
-              "RelativeDocumentMoniker": "GetCoordinates.cs",
-              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\GetCoordinates.cs*",
-              "RelativeToolTip": "GetCoordinates.cs*",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAnwHcAAAAmAAAA",
+              "Title": "App.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\App.cs",
+              "RelativeDocumentMoniker": "App.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\App.cs*",
+              "RelativeToolTip": "App.cs*",
+              "ViewState": "AQIAADkAAAAAAAAAAAAYwEYAAAB8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T07:13:11.011Z",
+              "WhenOpened": "2024-09-17T11:10:36.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ToggleRebar.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RebarOnOf\\ToggleRebar.cs",
+              "RelativeDocumentMoniker": "RebarOnOf\\ToggleRebar.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\RebarOnOf\\ToggleRebar.cs",
+              "RelativeToolTip": "RebarOnOf\\ToggleRebar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T11:00:32.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "exportAndPrint.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\exportAndPrint.cs",
+              "RelativeDocumentMoniker": "Print\u0026Export\\exportAndPrint.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\exportAndPrint.cs",
+              "RelativeToolTip": "Print\u0026Export\\exportAndPrint.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAQwGgAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T10:55:15.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PrintAndExportForm.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\PrintAndExportForm.cs",
+              "RelativeDocumentMoniker": "Print\u0026Export\\PrintAndExportForm.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\PrintAndExportForm.cs",
+              "RelativeToolTip": "Print\u0026Export\\PrintAndExportForm.cs",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAIwJoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T10:31:04.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PrintAndExportForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\PrintAndExportForm.cs",
+              "RelativeDocumentMoniker": "Print\u0026Export\\PrintAndExportForm.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\Print\u0026Export\\PrintAndExportForm.cs [Design]",
+              "RelativeToolTip": "Print\u0026Export\\PrintAndExportForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T10:30:06.032Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "OnGoing.cs",
               "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\OnGoing.cs",
               "RelativeDocumentMoniker": "OnGoing.cs",
               "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\OnGoing.cs",
               "RelativeToolTip": "OnGoing.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAYwBYAAAAyAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwLAAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T10:22:28.516Z",
+              "WhenOpened": "2024-09-11T14:25:09.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SelectBy.cs",
+              "DocumentMoniker": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\SelectBy\\SelectBy.cs",
+              "RelativeDocumentMoniker": "SelectBy\\SelectBy.cs",
+              "ToolTip": "C:\\Users\\Omar.Elshafey\\source\\repos\\oelshaf3y\\RSCC\\SelectBy\\SelectBy.cs",
+              "RelativeToolTip": "SelectBy\\SelectBy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T11:43:48.775Z",
               "EditorCaption": ""
             }
           ]
