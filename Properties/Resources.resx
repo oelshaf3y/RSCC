@@ -130,6 +130,12 @@
   <data name="hideUnhostedS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hideUnhostedS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HostL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HostL.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HostS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HostS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NOS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

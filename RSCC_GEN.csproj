@@ -120,6 +120,7 @@
     <Compile Include="FindRFTForm.Designer.cs">
       <DependentUpon>FindRFTForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RebarByHost.cs" />
     <Compile Include="RebarOnOf\ToggleRebar.cs" />
     <Compile Include="SelectBy\SelectBy.cs" />
     <Compile Include="SelectBy\SelectByForm.cs">
@@ -324,6 +325,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\selectbyl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HostL.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HostS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

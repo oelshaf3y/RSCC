@@ -18,6 +18,7 @@ using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using Group = Autodesk.Revit.DB.Group;
 using Autodesk.Revit.DB.Structure;
+using Autodesk.Revit.UI.Selection;
 
 namespace RSCC_GEN
 {
@@ -157,33 +158,47 @@ namespace RSCC_GEN
             #endregion
 
             #region RFT Weight
-            double vol = 0;
-            List<Element> selection = uidoc.Selection.GetElementIds().Select(x=>doc.GetElement(x)).ToList();
-            if (selection.Count > 0)
-            {
-                selection = selection.Where(x=>x is Rebar).ToList();
+            //double vol = 0;
+            //List<Element> selection = uidoc.Selection.GetElementIds().Select(x=>doc.GetElement(x)).ToList();
+            //if (selection.Count > 0)
+            //{
+            //    selection = selection.Where(x=>x is Rebar).ToList();
 
-                foreach (Element element in selection)
-                {
-                    Rebar rebar = element as Rebar;
-                    vol += rebar.Volume;
-                }
+            //    foreach (Element element in selection)
+            //    {
+            //        Rebar rebar = element as Rebar;
+            //        vol += rebar.Volume;
+            //    }
 
-            }
-            Element Host = doc.GetElement(((Rebar)selection.First()).GetHostId());
-            uidoc.Selection.SetElementIds(new List<ElementId> { Host.Id });
-            Solid s = doc.getSolid(Host);
-            double rebWeight = vol * 0.0283168 * 7850;
-            double hostVolume = s.Volume * 0.0283168;
-            doc.print("W= "+rebWeight+"\nHost Volume ="+hostVolume+"\nW/m3="+rebWeight/hostVolume);
+            //}
+            //Element Host = doc.GetElement(((Rebar)selection.First()).GetHostId());
+            //uidoc.Selection.SetElementIds(new List<ElementId> { Host.Id });
+            //Solid s = doc.getSolid(Host);
+            //double rebWeight = vol * 0.0283168 * 7850;
+            //double hostVolume = s.Volume * 0.0283168;
+            //doc.print("W= "+rebWeight+"\nHost Volume ="+hostVolume+"\nW/m3="+rebWeight/hostVolume);
 
 
             #endregion
+
 
             return Result.Succeeded;
         }
 
 
+    }
+    // Custom selection filter for rebar elements
+    public class RebarSelectionFilter : ISelectionFilter
+    {
+        public bool AllowElement(Element elem)
+        {
+            return elem is Rebar;
+        }
+
+        public bool AllowReference(Reference reference, XYZ position)
+        {
+            return true;
+        }
     }
 
 }

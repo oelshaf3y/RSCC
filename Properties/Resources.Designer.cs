@@ -103,6 +103,26 @@ namespace RSCC_GEN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon HostL {
+            get {
+                object obj = ResourceManager.GetObject("HostL", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon HostS {
+            get {
+                object obj = ResourceManager.GetObject("HostS", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon NOS {
             get {
                 object obj = ResourceManager.GetObject("NOS", resourceCulture);

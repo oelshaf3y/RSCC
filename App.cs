@@ -74,20 +74,26 @@ namespace RSCC_GEN
                 LargeImage = Properties.Resources.Rebl.ToImageSource(),
                 ToolTip = "Hide or unhide rebar category"
             };
+            PushButtonData rebarByHost = new PushButtonData("Rebar's Host", "Rebar By Host", assemblyName, "RSCC_GEN.RebarByHost")
+            {
+                Image = Properties.Resources.HostS.ToImageSource(),
+                LargeImage = Properties.Resources.HostL.ToImageSource(),
+                ToolTip = "Select Rebar By Selecting Host."
+            };
             try
             {
                 panel.AddItem(BatchPrint);
-                panel.AddItem(SelectBy);
                 panel.AddSeparator();
-                panel.AddStackedItems(NOS,HideUnhosted,ToggleReb);
+                panel.AddStackedItems(SelectBy,rebarByHost);
                 panel.AddSeparator();
-                panel.AddStackedItems(SaveState, restoreState, ResetSheets);
+                panel.AddItem(NOS);
                 panel.AddSeparator();
 
-
-                //panel.AddItem(SaveState);
-                //panel.AddItem(restoreState);
-                //panel.AddItem(ResetSheets);
+                panel.AddStackedItems(HideUnhosted,ToggleReb);
+                panel.AddSeparator();
+                panel.AddItem(SaveState);
+                panel.AddSeparator();
+                panel.AddStackedItems(restoreState, ResetSheets);
             }
             catch (System.Exception ex)
             {
