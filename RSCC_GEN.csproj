@@ -104,6 +104,7 @@
     <Compile Include="DeleteGroups.cs" />
     <Compile Include="DGVData.cs" />
     <Compile Include="GetCoordinates.cs" />
+    <Compile Include="IsolateElements.cs" />
     <Compile Include="ParamFromExcel.cs" />
     <Compile Include="PilesToSeaBed.cs" />
     <Compile Include="Print&amp;Export\ExcelExport.cs">
@@ -331,6 +332,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HostS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsolateL.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsolateS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

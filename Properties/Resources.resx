@@ -136,6 +136,12 @@
   <data name="HostS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HostS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IsolateL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IsolateL.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IsolateS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IsolateS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NOS.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

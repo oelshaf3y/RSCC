@@ -80,6 +80,12 @@ namespace RSCC_GEN
                 LargeImage = Properties.Resources.HostL.ToImageSource(),
                 ToolTip = "Select Rebar By Selecting Host."
             };
+            PushButtonData isolateElements = new PushButtonData("Isolate", "Isolate Elements", assemblyName, "RSCC_GEN.IsolateElements")
+            {
+                Image = Properties.Resources.IsolateS.ToImageSource(),
+                LargeImage = Properties.Resources.IsolateL.ToImageSource(),
+                ToolTip = "Isolate Selected Elements and Permenantly Hide Other Elements in This View"
+            };
             try
             {
                 panel.AddItem(BatchPrint);
@@ -91,6 +97,7 @@ namespace RSCC_GEN
 
                 panel.AddStackedItems(HideUnhosted,ToggleReb);
                 panel.AddSeparator();
+                panel.AddItem(isolateElements);
                 panel.AddItem(SaveState);
                 panel.AddSeparator();
                 panel.AddStackedItems(restoreState, ResetSheets);
