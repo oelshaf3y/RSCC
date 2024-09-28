@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Application = Autodesk.Revit.ApplicationServices.Application;
-using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -181,6 +180,64 @@ namespace RSCC_GEN
 
             #endregion
 
+
+            #region tag Alignment
+
+            //IndependentTag sourceTag = doc.GetElement(uidoc.Selection.PickObject(ObjectType.Element)) as IndependentTag;
+            //List<IndependentTag> Others = uidoc.Selection.PickObjects(ObjectType.Element).Select(x => doc.GetElement(x) as IndependentTag).ToList();
+
+            //XYZ horizontalDir = doc.ActiveView.CropBox.Transform.BasisY;
+            //XYZ verticalDir = doc.ActiveView.CropBox.Transform.BasisX;
+            //Line sourceLine = Line.CreateBound(sourceTag.TagHeadPosition.Add(1000 * verticalDir), sourceTag.TagHeadPosition.Add(-1000 * verticalDir));
+            //try
+            //{
+            //    BoundingBoxXYZ bx = doc.ActiveView.CropBox;
+            //    using (Transaction tr = new Transaction(doc, "Draw Line"))
+            //    {
+            //        tr.Start();
+
+            //        foreach (IndependentTag Tag in Others)
+            //        {
+            //            XYZ org = Tag.TagHeadPosition;
+            //            Line L = Line.CreateBound(org.Add(-1000 * horizontalDir), org.Add(1000 * horizontalDir));
+            //            IntersectionResultArray ir;
+            //            SetComparisonResult scr = L.Intersect(sourceLine, out ir);
+            //            Tag.TagHeadPosition = ir.get_Item(0).XYZPoint;
+            //        }
+
+            //        tr.Commit();
+            //    }
+
+            //    //IndependentTag Tag = selected as IndependentTag;
+            //    //doc.print(Tag.TagHeadPosition.X);
+            //}
+            //catch (Exception ex)
+            //{
+            //    doc.print(ex);
+            //}
+
+            #endregion
+
+
+            #region distribute evenly
+
+            List<IndependentTag> tags = uidoc.Selection.PickObjects(ObjectType.Element)
+                .Select(x => doc.GetElement(x) as IndependentTag)
+                .OrderBy(x => x.TagHeadPosition.X).ThenBy(x=>x.TagHeadPosition.Y)
+                .ToList();
+            double d = tags.First().TagHeadPosition.DistanceTo(tags.Last().TagHeadPosition) / (tags.Count - 1);
+            XYZ dir = (tags.Last().TagHeadPosition - tags.First().TagHeadPosition).Normalize();
+            using (Transaction tr = new Transaction(doc, "Distribute tags"))
+            {
+                tr.Start();
+                for (int i = 1; i < tags.Count - 1; i++)
+                {
+                    tags[i].TagHeadPosition = tags.First().TagHeadPosition.Add(d*i * dir);
+                }
+                tr.Commit();
+            }
+
+            #endregion
 
             return Result.Succeeded;
         }
