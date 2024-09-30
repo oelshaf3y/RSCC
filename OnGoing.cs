@@ -221,18 +221,40 @@ namespace RSCC_GEN
 
             #region distribute evenly
 
-            List<IndependentTag> tags = uidoc.Selection.PickObjects(ObjectType.Element)
-                .Select(x => doc.GetElement(x) as IndependentTag)
-                .OrderBy(x => x.TagHeadPosition.X).ThenBy(x=>x.TagHeadPosition.Y)
-                .ToList();
-            double d = tags.First().TagHeadPosition.DistanceTo(tags.Last().TagHeadPosition) / (tags.Count - 1);
-            XYZ dir = (tags.Last().TagHeadPosition - tags.First().TagHeadPosition).Normalize();
-            using (Transaction tr = new Transaction(doc, "Distribute tags"))
+            //List<IndependentTag> tags = uidoc.Selection.PickObjects(ObjectType.Element)
+            //    .Select(x => doc.GetElement(x) as IndependentTag)
+            //    .OrderBy(x => x.TagHeadPosition.X).ThenBy(x=>x.TagHeadPosition.Y)
+            //    .ToList();
+
+            //double d = tags.First().TagHeadPosition.DistanceTo(tags.Last().TagHeadPosition) / (tags.Count - 1);
+            //XYZ dir = (tags.Last().TagHeadPosition - tags.First().TagHeadPosition).Normalize();
+            //using (Transaction tr = new Transaction(doc, "Distribute tags"))
+            //{
+            //    tr.Start();
+            //    for (int i = 1; i < tags.Count - 1; i++)
+            //    {
+            //        tags[i].TagHeadPosition = tags.First().TagHeadPosition.Add(d*i * dir);
+            //    }
+            //    tr.Commit();
+            //}
+
+            #endregion
+
+            #region rotate element
+
+            List<Element> selectedElements = uidoc.Selection.GetElementIds().Select(x => doc.GetElement(x)).ToList();
+            using (Transaction tr = new Transaction(doc, "Rotate Element"))
             {
                 tr.Start();
-                for (int i = 1; i < tags.Count - 1; i++)
+                foreach (Element selectedElement in selectedElements)
                 {
-                    tags[i].TagHeadPosition = tags.First().TagHeadPosition.Add(d*i * dir);
+                    FamilyInstance inst = selectedElement as FamilyInstance;
+                    XYZ x = inst.GetTransform().BasisX;
+                    Transform transform = doc.ActiveView.CropBox.Transform;
+                    ((LocationPoint)selectedElement.Location)
+                        .Rotate(
+                        Line.CreateUnbound(((LocationPoint)selectedElement.Location).Point, transform.BasisZ),
+                        x.AngleTo(-transform.BasisX));
                 }
                 tr.Commit();
             }
